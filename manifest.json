@@ -1,0 +1,15 @@
+{
+  "name": "Verano en Jaca 2026 · Guía familiar",
+  "short_name": "Jaca 2026",
+  "description": "Planes familiares a menos de 1h30 de Jaca: actividades, planes de día, badinas y restaurantes.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#153528",
+  "theme_color": "#153528",
+  "lang": "es",
+  "icons": [
+    {"src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
