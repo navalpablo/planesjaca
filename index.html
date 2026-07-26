@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verano en Jaca 2026 · Guía familiar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#1E4D3B;
+  --pine-deep:#153528;
+  --paper:#F4F6F2;
+  --ink:#22302B;
+  --sun:#E9B44C;
+  --tren:#C4442A;
+  --natura:#2F7A4D;
+  --cultura:#A8720D;
+  --francia:#2E5E8C;
+  --agua:#1F8A94;
+  --eventos:#7A4E8C;
+  --card:#FFFFFF;
+  --line:#D8DED6;
+  --muted:#5C6A61;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--pine)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:4px}
+
+/* ---------- HERO ---------- */
+header.hero{background:var(--pine-deep);color:#F2F5EF;position:relative;overflow:hidden;padding:44px 20px 68px}
+header.hero svg.contours{position:absolute;inset:0;width:100%;height:100%;opacity:.35;pointer-events:none}
+.hero-inner{position:relative;max-width:960px;margin:0 auto}
+.blaze{display:inline-flex;flex-direction:column;width:46px;border-radius:3px;overflow:hidden;margin-bottom:18px}
+.blaze span{height:9px}
+.blaze .w{background:#F2F5EF}
+.blaze .r{background:var(--tren)}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.1rem,7vw,3.6rem);line-height:1.05;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--sun)}
+.hero-sub{margin-top:14px;font-size:1.05rem;max-width:560px;color:#D7E2DA}
+.hero-meta{margin-top:20px;font-family:'Spline Sans Mono',monospace;font-size:.8rem;letter-spacing:.04em;color:var(--sun);text-transform:uppercase}
+.notice{max-width:960px;margin:-34px auto 0;position:relative;background:var(--sun);color:#3A2C0A;border-radius:12px;padding:14px 18px;font-size:.92rem;box-shadow:0 6px 18px rgba(21,53,40,.18)}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+
+/* ---------- NAV ---------- */
+nav.cats{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 0}
+nav.cats .row{display:flex;gap:8px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+nav.cats .row::-webkit-scrollbar{display:none}
+nav.cats a{flex:0 0 auto;text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid var(--line);color:var(--ink);background:#fff;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+nav.cats a .dot{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* ---------- AGE FILTER ---------- */
+.agebar{padding:18px 16px 4px;max-width:960px;margin:0 auto}
+.agebar p{font-family:'Spline Sans Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+.agebar .btns{display:flex;flex-wrap:wrap;gap:8px}
+.agebtn{font-family:'Instrument Sans',sans-serif;font-size:.88rem;font-weight:600;padding:8px 14px;border-radius:999px;border:1.5px solid var(--pine);background:#fff;color:var(--pine);cursor:pointer}
+.agebtn.active{background:var(--pine);color:#fff}
+
+/* ---------- SECTIONS ---------- */
+section.cat{padding:30px 0 6px;scroll-margin-top:64px}
+.cat-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.cat-blaze{display:flex;flex-direction:column;width:34px;border-radius:2px;overflow:hidden;flex:0 0 auto}
+.cat-blaze span{height:7px}
+.cat-blaze .w{background:#fff;border:1px solid var(--line);border-bottom:none}
+h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.4rem,4.5vw,1.9rem);letter-spacing:-.01em}
+.cat-sub{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;position:relative;border-top:5px solid var(--accent,var(--pine))}
+.card.hidden{display:none}
+.card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.12rem;line-height:1.25;padding-right:86px}
+.star{position:absolute;top:12px;right:12px;background:var(--sun);color:#3A2C0A;font-size:.68rem;font-weight:700;font-family:'Spline Sans Mono',monospace;letter-spacing:.03em;padding:4px 8px;border-radius:999px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{font-family:'Spline Sans Mono',monospace;font-size:.72rem;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--ink)}
+.card p{font-size:.93rem;margin-bottom:8px}
+.baby{font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin-bottom:10px}
+.card .go{display:inline-block;font-size:.88rem;font-weight:600;text-decoration:none;border-bottom:2px solid var(--accent,var(--pine));padding-bottom:1px}
+.warnlist{list-style:none;margin-bottom:20px}
+.warnlist li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--eventos);border-radius:10px;padding:12px 14px;font-size:.92rem;margin-bottom:8px}
+.warnlist li strong{color:var(--eventos)}
+
+/* ---------- ITINERARIES ---------- */
+.itins{display:grid;grid-template-columns:1fr;gap:14px;margin:6px 0 20px}
+@media(min-width:680px){.itins{grid-template-columns:1fr 1fr}}
+.itin{background:var(--pine);color:#EAF2EC;border-radius:14px;padding:20px}
+.itin h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;margin-bottom:10px;color:var(--sun)}
+.itin ol{padding-left:20px;font-size:.93rem}
+.itin li{margin-bottom:6px}
+
+footer{background:var(--pine-deep);color:#B9C9BD;text-align:center;padding:30px 20px 40px;font-size:.82rem;margin-top:40px}
+footer .blaze{margin-bottom:12px;width:34px}
+footer .blaze span{height:7px}
+.empty-msg{display:none;color:var(--muted);font-size:.9rem;font-style:italic;padding:4px 0 14px}
+section.cat.allhidden .empty-msg{display:block}
+
+/* ---------- MODO PLANES ---------- */
+.modebar{display:flex;gap:0;margin-bottom:14px;border:1.5px solid var(--pine);border-radius:999px;overflow:hidden;width:fit-content}
+.modebtn{font-family:'Instrument Sans',sans-serif;font-size:.9rem;font-weight:600;padding:9px 18px;border:none;background:#fff;color:var(--pine);cursor:pointer}
+.modebtn.active{background:var(--pine);color:#fff}
+#planes{display:none}
+body.mode-planes #planes{display:block}
+body.mode-planes section.cat:not(#planes){display:none}
+body.mode-planes nav.cats{display:none}
+.plan{border-top-width:5px}
+.tl{list-style:none;margin:12px 0 12px}
+.tl li{display:flex;gap:10px;font-size:.92rem;padding:5px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.tl li:last-child{border-bottom:none}
+.tl b{font-family:'Spline Sans Mono',monospace;font-weight:500;font-size:.78rem;color:var(--pine);flex:0 0 52px;letter-spacing:.02em}
+.food,.extra{font-size:.9rem;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.food{background:#FBF3E2;border:1px solid #EAD9AE}
+.food strong{color:#8A5F0B}
+.extra{background:#EDF3EE;border:1px solid #D3E2D6}
+.extra strong{color:var(--pine)}
+.plans-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:14px}
+@media(min-width:760px){.plans-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<svg class="contours" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+<g fill="none" stroke="#3E7A5E" stroke-width="1.4">
+<path d="M-20,320 C120,250 200,330 340,270 C480,210 560,300 700,240 C760,215 800,230 830,220"/>
+<path d="M-20,280 C120,215 210,290 350,235 C490,180 570,260 710,205 C770,182 800,195 830,188"/>
+<path d="M-20,240 C130,180 220,250 360,200 C500,150 580,220 720,170 C775,150 800,160 830,155"/>
+<path d="M-20,200 C140,148 235,210 370,166 C505,122 590,182 730,138 C780,122 805,128 830,124"/>
+<path d="M-20,160 C150,118 245,170 380,132 C515,95 600,145 740,108 C785,96 808,100 830,96"/>
+<path d="M-20,120 C160,88 255,132 390,100 C525,68 610,110 750,80 C790,71 810,73 830,70"/>
+</g>
+</svg>
+<div class="hero-inner">
+<span class="blaze" aria-hidden="true"><span class="w"></span><span class="r"></span></span>
+<h1>Verano en Jaca <em>2026</em></h1>
+<p class="hero-sub">Guía familiar de planes a menos de 1h30 en coche. Trenes de montaña, ibones, castillos, cuevas y escapadas a Francia, con niños de 1 a 6 años.</p>
+<p class="hero-meta">Base: Jaca · 27 jul a 30 ago · Pirineo aragonés y bearnés</p>
+</div>
+</header>
+
+<div class="wrap"><div class="notice"><strong>Antes de salir:</strong> precios y horarios son orientativos para el verano de 2026. Confirmad siempre en la web oficial y reservad con antelación los trenes turísticos, sobre todo el de Artouste.</div></div>
+
+<nav class="cats" aria-label="Categorías">
+<div class="row">
+<a href="#trenes"><span class="dot" style="background:var(--tren)"></span>Trenes y remontes</a>
+<a href="#natura"><span class="dot" style="background:var(--natura)"></span>Naturaleza</a>
+<a href="#cultura"><span class="dot" style="background:var(--cultura)"></span>Cultura y pueblos</a>
+<a href="#francia"><span class="dot" style="background:var(--francia)"></span>Francia</a>
+<a href="#agua"><span class="dot" style="background:var(--agua)"></span>Agua</a>
+<a href="#eventos"><span class="dot" style="background:var(--eventos)"></span>Eventos y avisos</a>
+<a href="#visitas"><span class="dot" style="background:var(--sun)"></span>Con cada visita</a>
+</div>
+</nav>
+
+<div class="agebar">
+<div class="modebar" role="group" aria-label="Modo de vista">
+<button class="modebtn active" data-mode="actividades">Actividades</button>
+<button class="modebtn" data-mode="planes">Planes de día</button>
+</div>
+<p>Filtrar por edades del grupo</p>
+<div class="btns" role="group" aria-label="Filtro por edad">
+<button class="agebtn active" data-age="all">Todos los planes</button>
+<button class="agebtn" data-age="1">Con la peque de 1 año</button>
+<button class="agebtn" data-age="3">Con 3 y 4 años</button>
+<button class="agebtn" data-age="5">Con 5 y 6 años</button>
+</div>
+</div>
+
+<main class="wrap">
+
+<!-- ============ PLANES DE DIA ============ -->
+<section class="cat" id="planes">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--sun)"></span></span>
+<h2>Planes de día completos</h2>
+</div>
+<p class="cat-sub">Un plan principal, comida reservada y vuelta a casa a media tarde. Los horarios son orientativos y sin madrugones, salvo los dos días marcados. Regla de oro con peques: mejor un plan simple bien hecho que tres a medias.</p>
+<p class="empty-msg">Ningún plan encaja con el filtro elegido.</p>
+<div class="plans-grid">
+
+<article class="card plan" style="--accent:var(--natura)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Día de animales: Lacuniacha</h3>
+<div class="meta"><span class="chip">🚗 35 min por trayecto</span><span class="chip">Ritmo tranquilo</span></div>
+<ul class="tl">
+<li><b>9:45</b> Salida de Jaca sin agobios</li>
+<li><b>10:30</b> Lacuniacha: el recorrido entero son 2-3 h con paradas; entrada comprada online</li>
+<li><b>13:45</b> Comida a 2 min, en el mismo Piedrafita</li>
+<li><b>15:30</b> Vuelta; siesta en el coche y merienda o piscina en Jaca</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Bosque del Betato (Piedrafita), jardín con tobogán y plato infantil de salchichas y espaguetis. Variante: Casa Patro en Tramacastilla (974 48 71 52), cocina casera, a 5 min.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> paseo corto hacia el ibón de Piedrafita (los mayores) o un rato de badina. Con la bebé, mejor dejarlo aquí.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--tren)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Día de trenecito: El Sarrio y Tramacastilla</h3>
+<div class="meta"><span class="chip">🚗 40 min por trayecto</span><span class="chip">Ritmo tranquilo</span></div>
+<ul class="tl">
+<li><b>10:00</b> Salida de Jaca</li>
+<li><b>11:00</b> Tren El Sarrio (reservado): 50 min de subida con audioguía y media hora de juego en el ibón de las Paules</li>
+<li><b>13:30</b> Comida en Tramacastilla, reservada la víspera</li>
+<li><b>15:30</b> Paseo corto por el pueblo y vuelta a Jaca</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Casa Patro (974 48 71 52), migas y brasa, ideal con niños. Variante: Casa Blasco, al lado, con comedor acristalado.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> con los mayores, bajada a pie del ibón por la senda señalizada en vez de en tren; o un rato en las orillas del embalse de Búbal.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--tren)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Día de altura fácil: telecabina de Panticosa</h3>
+<div class="meta"><span class="chip">🚗 45 min por trayecto</span><span class="chip">Ritmo tranquilo</span></div>
+<ul class="tl">
+<li><b>9:45</b> Salida de Jaca; entradas online del día anterior</li>
+<li><b>10:45</b> Telecabina a la cota 1.900: juegos, miradores y paseo suave al ibón de los Asnos con los mayores</li>
+<li><b>13:15</b> Bajada y comida en el pueblo</li>
+<li><b>15:30</b> Helado y paseo por Panticosa; vuelta a media tarde</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Casa Belío, terraza con vistas y ambiente familiar, abre todos los días. Variantes: El Ciervo o La Ripera (974 487 095), rápidos; o Mesón El Embalse en El Pueyo de Jaca (974 48 70 48), a 10 min, con terraza al embalse.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> se puede comer arriba en el restaurante de la cota 1.900 y bajar después; las pasarelas de Panticosa quedan para otro año, no son aptas con estos peques.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--tren)" data-ages="3,5">
+<h3>El día grande: Petit Train d'Artouste</h3>
+<div class="meta"><span class="chip">🚗 1 h 10 por trayecto</span><span class="chip">⚠ Único día de madrugar</span><span class="chip">Día completo</span></div>
+<ul class="tl">
+<li><b>8:45</b> Salida de Jaca por el Portalet, con el tren reservado hace días</li>
+<li><b>10:15</b> Telecabina en Fabrèges y tren de las 10:30-11:00</li>
+<li><b>11:30</b> Llegada arriba: paseo de 20 min al lago de Artouste y picnic en la orilla</li>
+<li><b>14:00</b> Tren y telecabina de bajada</li>
+<li><b>15:00</b> Crêpe o helado en Fabrèges y vuelta; siesta asegurada en el coche</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> picnic en el lago es lo más cómodo. Variantes sin picnic: Le Panoramic (autoservicio arriba de la telecabina, rápido) o Le Petit Lurien (crepería con terraza cubierta). A la vuelta, opción de merienda-cena en Laruns: Le Pamplona, brasserie sencilla y familiar.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> parada de 45 min en el lago de Bious-Artigues (desvío en Gabas) para estirar piernas con vistas al Midi d'Ossau.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--cultura)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Día de estación de leyenda: Canfranc</h3>
+<div class="meta"><span class="chip">🚂 En tren desde Jaca, o 🚗 25 min</span><span class="chip">Ritmo tranquilo</span></div>
+<ul class="tl">
+<li><b>10:15</b> Tren regional desde Jaca (mirad horario en Renfe): el viaje ya es la atracción</li>
+<li><b>11:00</b> Visita guiada reservada a la estación y paseo por la explanada de locomotoras</li>
+<li><b>13:30</b> Comida informal en Canfranc Estación</li>
+<li><b>16:00</b> Chocolate o merienda en la cafetería del hotel de la estación y tren de vuelta</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> los restaurantes con menú del día junto a la explanada, sencillos y generosos. La cafetería del hotel Canfranc Estación vale para merendar; su restaurante gastronómico del vagón no es plan con niños.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> si vais en coche en lugar de en tren, a la vuelta encaja la visita de las 16:00 o 17:30 a las cuevas de las Güixas en Villanúa (reservada, para los de 3 en adelante).</div>
+</article>
+
+<article class="card plan" style="--accent:var(--natura)" data-ages="1,3,5">
+<h3>Día de bosque: Selva de Oza y valle de Hecho</h3>
+<div class="meta"><span class="chip">🚗 1 h por trayecto</span><span class="chip">Día completo relajado</span></div>
+<ul class="tl">
+<li><b>9:45</b> Salida de Jaca; parada en Hecho a comprar pan en la Panadería Brun</li>
+<li><b>11:00</b> Selva de Oza: paseo llano junto al río, pradera y pozas junto al puente (agua fría, chapoteo corto)</li>
+<li><b>13:45</b> Comida reservada bajando el valle</li>
+<li><b>16:00</b> Paseo por las calles de Hecho y vuelta</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Borda Bisáltico (974 34 89 40), en la carretera de Gabardito: parque infantil, praderas y brasa; solo efectivo. Variantes: picnic en el área recreativa de Oza o el bar del camping de Oza (sin cobertura móvil); Canteré en Hecho (974 37 52 14) si preferís pueblo.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> parada de fotos en la Boca del Infierno; o alargar a Ansó otro día en vez de meterlo en este.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--agua)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Día fácil sin coche apenas: Villanúa</h3>
+<div class="meta"><span class="chip">🚗 15 min por trayecto</span><span class="chip">El más tranquilo de todos</span></div>
+<ul class="tl">
+<li><b>10:30</b> Salida tardía, que también hay derecho</li>
+<li><b>10:45</b> Ecoparque El Juncaral: tirolinas por edades desde 3 años, laberinto y minigolf</li>
+<li><b>12:30</b> Badinas del Aragón a 5 min andando: chapoteo y juego en los remansos</li>
+<li><b>13:45</b> Comida en el pueblo</li>
+<li><b>15:30</b> A casa a la siesta; tarde de piscina si apetece</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> La Estrella (974 37 80 03), tronas confirmadas, terraza con vistas y menú del día. Variante: picnic junto al río con encargo en el bar del Ecoparque.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> visita de tarde a las cuevas de las Güixas (reserva previa, de 3 años en adelante, chaqueta).</div>
+</article>
+
+<article class="card plan" style="--accent:var(--cultura)" data-ages="1,3,5">
+<h3>Día de leyenda y pradera: San Juan de la Peña</h3>
+<div class="meta"><span class="chip">🚗 30 min por trayecto</span><span class="chip">Ritmo tranquilo</span></div>
+<ul class="tl">
+<li><b>10:00</b> Salida de Jaca</li>
+<li><b>10:45</b> Monasterio viejo bajo la roca (visita corta, la leyenda del Grial para los mayores)</li>
+<li><b>12:00</b> Pradera de San Indalecio: carreras, sombra y juego libre</li>
+<li><b>13:45</b> Comida en la pradera o bajando a Santa Cruz de la Serós</li>
+<li><b>16:00</b> Paseo corto por Santa Cruz y vuelta</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> cafetería del Monasterio Nuevo junto a la pradera (pizzas y bocadillos, rápido con niños). Variante con mantel: Hostelería Santa Cruz de la Serós, terraza con vistas a la iglesia, o O'Fogaril en el mismo pueblo.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> mirador de los Pirineos junto al Monasterio Nuevo, a un paso del parking.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--cultura)" data-ages="3,5">
+<h3>Día de castillo: Loarre y los buitres de Riglos</h3>
+<div class="meta"><span class="chip">🚗 50 min por trayecto</span><span class="chip">Ritmo medio</span></div>
+<ul class="tl">
+<li><b>9:45</b> Salida de Jaca, mejor pronto por el calor de la Hoya</li>
+<li><b>10:45</b> Castillo de Loarre: visita con juego de buscar al rey para los mayores</li>
+<li><b>13:30</b> Comida junto al castillo</li>
+<li><b>15:45</b> Parada de 30 min en Murillo de Gállego para ver buitres sobre los Mallos de Riglos</li>
+<li><b>17:00</b> Vuelta a Jaca</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> el restaurante del Castillo de Loarre, con hamburguesas, migas y pizzas y vistas a la Hoya. Variante: bares de Ayerbe o de Murillo de Gállego de camino a Riglos.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> los mayores pueden ver el rafting llegar a Murillo; apuntad la idea para repetir zona otro día con descenso familiar.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Día de río: la Chopera de Broto</h3>
+<div class="meta"><span class="chip">🚗 50 min por trayecto</span><span class="chip">Día de calor perfecto</span></div>
+<ul class="tl">
+<li><b>10:00</b> Salida de Jaca por Fiscal</li>
+<li><b>11:00</b> Chopera de Broto: baño en los remansos, sombra, juegos infantiles y merendero</li>
+<li><b>13:45</b> Comida en Broto a pie de chopera</li>
+<li><b>16:00</b> Parada opcional en la Gorga del Cura (Fiscal) a la vuelta, o directos a casa</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Pizzería La Tea de Broto, horno de leña y servicio rápido. Variantes: Mesón Sorrosal o Casa Joaquín, más caseros; o picnic en el propio merendero de la chopera.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> pasarela corta a la cascada de Sorrosal en el mismo Broto, 15 minutos que impresionan mucho.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--francia)" data-ages="1,3,5">
+<h3>Día francés: zoo de Asson</h3>
+<div class="meta"><span class="chip">🚗 ~1 h 30 por trayecto</span><span class="chip">⚠ Único día de madrugar (el otro es Artouste)</span><span class="chip">Día completo</span></div>
+<ul class="tl">
+<li><b>9:00</b> Salida de Jaca por el Somport</li>
+<li><b>10:30</b> Zoo d'Asson: pandas rojos, canguros en semilibertad y dinosaurios; llano y con sombra</li>
+<li><b>13:15</b> Comida a 5 min del zoo</li>
+<li><b>15:00</b> Vuelta con siesta en el coche, o extra de cuevas si el grupo aguanta</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Ô Quatre Saisons en Lestelle-Bétharram (+33 5 33 11 15 11): buffets de entrantes y postres, rápido y muy familiar, menús del mediodía baratos. Variante: picnic en el propio zoo.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> las Grottes de Bétharram están a 2 km (reserva online, sin carrito): barca y trenecito dentro de la cueva. Solo si los peques van sobrados; si no, se guarda para otro viaje.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--tren)" data-ages="3,5">
+<h3>Medio día exprés: telesilla de Astún</h3>
+<div class="meta"><span class="chip">🚗 30 min por trayecto</span><span class="chip">Solo mañana</span></div>
+<ul class="tl">
+<li><b>10:00</b> Salida de Jaca</li>
+<li><b>10:45</b> Telesilla de verano y paseo corto junto a los ibones</li>
+<li><b>13:30</b> Bajada y comida en Jaca, o terraza-barbacoa arriba si está abierta</li>
+<li><b>16:00</b> Tarde libre de piscina o badina en casa</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> de vuelta en Jaca, Las 3 Ranas o El Arrebol (con zona de juegos). Variante: la terraza de la estación de Astún si opera este verano, confirmar.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> parada en Canfranc pueblo a ver el puente medieval, 20 minutos de camino a casa.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Día navarro: Burgui y el valle de Roncal</h3>
+<div class="meta"><span class="chip">🚗 ~1 h por trayecto</span><span class="chip">Día de calor</span></div>
+<ul class="tl">
+<li><b>10:00</b> Salida de Jaca hacia Salvatierra de Esca</li>
+<li><b>11:00</b> Piscina fluvial de Burgui: orillas de grava, remansos y el puente romano</li>
+<li><b>13:45</b> Comida en Burgui o picnic en el merendero</li>
+<li><b>16:00</b> Compra de queso DO Roncal en Quesos Larra y vuelta; parada opcional en Ansó de camino</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Bar Restaurante Suargi en Burgui, sencillo y con parking. Variante top: picnic en el merendero del río con queso Larra, pan y embutido comprados allí mismo.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> volver por Ansó y merendar allí, con parada de fotos en la foz de Biniés (solo mirador con los peques).</div>
+</article>
+
+</div>
+</section>
+
+<!-- ============ TRENES ============ -->
+<section class="cat" id="trenes">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--tren)"></span></span>
+<h2>Trenes y remontes</h2>
+</div>
+<p class="cat-sub">Lo que más triunfa con peques: subir a la alta montaña sin caminar.</p>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--tren)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Tren El Sarrio (Tramacastilla de Tena)</h3>
+<div class="meta"><span class="chip">🚗 40 min</span><span class="chip">⏱ 50-55 min + 30 min en el ibón</span><span class="chip">💶 ~18 € adulto, 14 € niños, bebés gratis</span><span class="chip">📅 Reserva online o WhatsApp</span></div>
+<p>Trenecito de ruedas con audioguía que sube al ibón de las Paules. Es el más corto y llevadero de la zona, ideal para todas las edades. Con los mayores podéis bajar andando por una senda señalizada apta para niños.</p>
+<p class="baby">Con la de 1 año: perfecta en brazos en el tren; mochila portabebés para el rato del ibón.</p>
+<a class="go" href="https://www.tramacastilladetena.es/" target="_blank" rel="noopener">Web oficial (Tramacastilla de Tena) →</a>
+</article>
+
+<article class="card" style="--accent:var(--tren)" data-ages="3,5">
+<h3>Tren Turístico Valle de Tena (Piedrafita de Jaca)</h3>
+<div class="meta"><span class="chip">🚗 35 min</span><span class="chip">⏱ 2 h 15 de ruta</span><span class="chip">💶 ~18 €, gratis menores de 4 sin asiento</span><span class="chip">📅 Llegar 20 min antes</span></div>
+<p>La ruta larga: alta montaña por La Partacua hasta el ibón de Piedrafita, con paradas para fotos y avistar marmotas. Espectacular, aunque a los de 3 años se les puede hacer largo. Circula por pista: llevad gorra, agua y chubasquero, levanta polvo.</p>
+<p class="baby">Mejor sin el bebé: va descubierto, con polvo y más de 2 horas de trayecto.</p>
+<a class="go" href="https://www.trenvalledetena.com/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--tren)" data-ages="3,5">
+<h3>Petit Train d'Artouste (Francia)</h3>
+<div class="meta"><span class="chip">🚗 1 h 10 por el Portalet</span><span class="chip">⏱ Telecabina + 55 min de tren</span><span class="chip">💶 ~30 € adulto aprox.</span><span class="chip">📅 Reserva imprescindible</span></div>
+<p>El tren turístico más alto de Europa: telecabina desde el lago de Fabrèges y luego un tren de vía estrecha a 2.000 m que bordea la montaña hasta el lago de Artouste, con el Midi d'Ossau enfrente. Plan de día completo inolvidable para los de 4 a 6 años.</p>
+<p class="baby">Se puede con bebé en brazos, pero es día largo; mejor reservarlo para la visita del niño de 4 años.</p>
+<a class="go" href="https://artouste.fr/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--tren)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Telecabina de Panticosa + ibón de los Asnos</h3>
+<div class="meta"><span class="chip">🚗 45 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Consultar tarifa verano</span><span class="chip">📅 Sin reserva normalmente</span></div>
+<p>La telecabina sube desde el pueblo a unos 1.900 m. Arriba: restaurante con terraza, zona de juegos y un paseo suave de 20-30 min hasta el ibón de los Asnos. Vistas enormes con esfuerzo mínimo, funciona con cualquier edad.</p>
+<p class="baby">Cabina apta para carrito plegado; arriba, mochila portabebés para el paseo.</p>
+<a class="go" href="https://www.formigal-panticosa.com/" target="_blank" rel="noopener">Web oficial Aramón →</a>
+</article>
+
+<article class="card" style="--accent:var(--tren)" data-ages="3,5">
+<h3>Telesilla de verano de Astún</h3>
+<div class="meta"><span class="chip">🚗 30 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Consultar tarifa verano</span><span class="chip">📅 Fines de semana y agosto, confirmar</span></div>
+<p>El remonte más cercano a Jaca: el telesilla de verano deja a un paseo corto de los ibones de la zona de Escalar y Truchas. Para los mayores, la emoción de la silla ya es medio plan.</p>
+<p class="baby">El telesilla no es apto para bebés; dejadlo para los de 3 en adelante y bien agarrados.</p>
+<a class="go" href="https://www.astun.com/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+</div>
+</section>
+
+<!-- ============ NATURALEZA ============ -->
+<section class="cat" id="natura">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--natura)"></span></span>
+<h2>Naturaleza y excursiones suaves</h2>
+</div>
+<p class="cat-sub">Paseos cortos, bosques y animales, pensados para piernas pequeñas.</p>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--natura)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Lacuniacha, parque faunístico (Piedrafita de Jaca)</h3>
+<div class="meta"><span class="chip">🚗 35 min</span><span class="chip">⏱ 2-3 h de recorrido a pie</span><span class="chip">💶 ~17 € adulto, niños menos, entrada online</span><span class="chip">📅 Comprar entrada con antelación en agosto</span></div>
+<p>Un bosque de alta montaña con ciervos, bisontes, linces, sarrios y caballos Przewalski en semilibertad. El circuito es un paseo señalizado con miradores; probablemente el plan más redondo de toda la zona para estas edades.</p>
+<p class="baby">Camino de montaña con cuestas: se puede con carrito todoterreno, pero la mochila portabebés es mucho más cómoda.</p>
+<a class="go" href="https://www.lacuniacha.es/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--natura)" data-ages="3,5">
+<h3>Ibón de Piedrafita a pie</h3>
+<div class="meta"><span class="chip">🚗 35 min + pista al parking</span><span class="chip">⏱ 30-40 min de subida fácil</span><span class="chip">💶 Gratis</span><span class="chip">📅 Mejor por la mañana</span></div>
+<p>Desde el aparcamiento, pista ancha y tendida hasta un ibón precioso a los pies de la Partacua, con caballos y marmotas por el camino. Los de 5-6 lo suben solos; el de 3 con paradas. Combina genial con Lacuniacha en el mismo día.</p>
+<p class="baby">Sin carrito; mochila portabebés sin problema.</p>
+<a class="go" href="https://www.pirineosaltogallego.com/" target="_blank" rel="noopener">Info turismo Alto Gállego →</a>
+</article>
+
+<article class="card" style="--accent:var(--natura)" data-ages="1,3,5">
+<h3>Selva de Oza y Boca del Infierno (valle de Hecho)</h3>
+<div class="meta"><span class="chip">🚗 1 h 05</span><span class="chip">⏱ Día completo con picnic</span><span class="chip">💶 Gratis</span><span class="chip">📅 Llegar pronto para aparcar en agosto</span></div>
+<p>Uno de los bosques más bonitos del Pirineo: hayas y abetos junto al río Aragón Subordán, con área recreativa, paseos llanos por pista y el desfiladero de la Boca del Infierno de camino. Junto al puente de Oza hay praderas de césped y pozas de baño (agua muy fría, de cabecera): día redondo de picnic y chapoteo.</p>
+<p class="baby">Las pistas junto al río admiten carrito todoterreno; muchas sombras y sitios para parar.</p>
+<a class="go" href="https://www.hecho.es/" target="_blank" rel="noopener">Turismo valle de Hecho →</a>
+</article>
+
+<article class="card" style="--accent:var(--natura)" data-ages="1,3,5">
+<h3>Pradera de Ordesa desde Torla</h3>
+<div class="meta"><span class="chip">🚗 1 h 10 a Torla + bus lanzadera</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Bus ~5 €</span><span class="chip">📅 En agosto, bus obligatorio; madrugad</span></div>
+<p>El valle glaciar más famoso de España. Con niños pequeños no hace falta ir a la Cola de Caballo: el paseo llano por la pradera junto al río Arazas, entre paredes de mil metros, ya es una pasada. Volvéis en el bus cuando se cansen.</p>
+<p class="baby">La pista de la pradera admite carrito todoterreno en su primer tramo.</p>
+<a class="go" href="https://www.ordesa.net/" target="_blank" rel="noopener">Info práctica y bus →</a>
+</article>
+
+</div>
+</section>
+
+<!-- ============ CULTURA ============ -->
+<section class="cat" id="cultura">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--cultura)"></span></span>
+<h2>Cultura y pueblos</h2>
+</div>
+<p class="cat-sub">Castillos, estaciones de leyenda y pueblos de piedra, en versión apta para niños.</p>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--cultura)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Ciudadela de Jaca y sus ciervos</h3>
+<div class="meta"><span class="chip">🚗 En Jaca mismo</span><span class="chip">⏱ 1-2 h</span><span class="chip">💶 ~6-8 €; el paseo exterior es gratis</span><span class="chip">📅 Sin reserva, hay visitas guiadas</span></div>
+<p>Fortaleza estrellada del siglo XVI con ciervos viviendo en el foso: los peques flipan. Dentro, el Museo de Miniaturas Militares con más de 30.000 figuritas engancha sorprendentemente a los de 4 a 6 años. Plan comodín para cualquier tarde.</p>
+<p class="baby">La vuelta al foso por fuera es llana y perfecta con carrito.</p>
+<a class="go" href="https://ciudadeladejaca.es/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--cultura)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Estación Internacional de Canfranc</h3>
+<div class="meta"><span class="chip">🚗 25 min, o en tren regional desde Jaca</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Visita guiada de pago, explanada gratis</span><span class="chip">📅 Reservar la visita guiada</span></div>
+<p>El "Titanic de las montañas": la estación gigante restaurada, con locomotoras antiguas en la explanada y visitas guiadas que cuentan su historia de espías y oro nazi (versión apta para niños). Extra redondo: ir desde Jaca en el tren regional de Renfe y merendar chocolate en el hotel.</p>
+<p class="baby">Explanada y andenes llanos, ideal con carrito.</p>
+<a class="go" href="https://www.canfranc.es/" target="_blank" rel="noopener">Visitas y reservas →</a>
+</article>
+
+<article class="card" style="--accent:var(--cultura)" data-ages="3,5">
+<h3>Cuevas de las Güixas (Villanúa)</h3>
+<div class="meta"><span class="chip">🚗 15 min</span><span class="chip">⏱ ~1 h de visita guiada</span><span class="chip">💶 ~10 € aprox.</span><span class="chip">📅 Reserva casi obligada en agosto</span></div>
+<p>La cueva de las brujas: visita guiada muy pensada para familias, con murciélagos, estalactitas y leyendas. A 12 grados dentro, es el plan perfecto para un día de calor o de lluvia. Llevad chaqueta y calzado cerrado.</p>
+<p class="baby">No apta para carrito ni recomendable con bebé; ideal de 3 años en adelante.</p>
+<a class="go" href="https://turismovillanua.es/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--cultura)" data-ages="1,3,5">
+<h3>San Juan de la Peña: monasterio y pradera</h3>
+<div class="meta"><span class="chip">🚗 30 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Entrada combinada ~12 € aprox.</span><span class="chip">📅 Sin reserva normalmente</span></div>
+<p>El monasterio viejo, encajado bajo una roca gigante, impresiona a cualquier edad, y la leyenda del Santo Grial da juego con los mayores. Arriba, la pradera de San Indalecio es un praderón con vistas y mesas de picnic donde los peques corren a su aire.</p>
+<p class="baby">Pradera perfecta para manta y carrito; el monasterio viejo tiene escaleras, mejor en brazos.</p>
+<a class="go" href="https://www.monasteriosanjuan.com/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--cultura)" data-ages="1,3,5">
+<h3>Hecho y Ansó, pueblos de piedra</h3>
+<div class="meta"><span class="chip">🚗 45-50 min</span><span class="chip">⏱ Medio día tranquilo</span><span class="chip">💶 Gratis; museo del traje ~3 €</span><span class="chip">📅 Sin reserva</span></div>
+<p>Dos de los pueblos más bonitos del Pirineo, a un paso el uno del otro. Paseo por las calles empedradas, helado en la plaza y, en Ansó, el museo del traje ansotano. Si estáis el 30 de agosto, no os perdáis el Día del Traje (ver eventos).</p>
+<p class="baby">Calles empedradas pero llanas en el centro; carrito viable.</p>
+<a class="go" href="https://www.jacetania.es/" target="_blank" rel="noopener">Turismo Jacetania →</a>
+</article>
+
+<article class="card" style="--accent:var(--cultura)" data-ages="3,5">
+<h3>Castillo de Loarre</h3>
+<div class="meta"><span class="chip">🚗 50 min</span><span class="chip">⏱ 2-3 h</span><span class="chip">💶 ~7 € aprox., guiada algo más</span><span class="chip">📅 Reservar guiada; en verano hay nocturnas</span></div>
+<p>El castillo románico mejor conservado de Europa, escenario de películas: torres, pasadizos y almenas de verdad para jugar a caballeros. Con 5-6 años es un plan de diez; el de 3 disfruta con vigilancia en las escaleras.</p>
+<p class="baby">Muchas escaleras irregulares: solo con mochila portabebés y paciencia.</p>
+<a class="go" href="https://castillo-loarre.es/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--cultura)" data-ages="1,3,5">
+<h3>Aínsa y el Eco Museo del quebrantahuesos</h3>
+<div class="meta"><span class="chip">🚗 1 h 25, al límite del radio</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Museo ~5 € aprox.</span><span class="chip">📅 Sin reserva</span></div>
+<p>Plaza porticada medieval de postal y, dentro del castillo, el Eco Museo de la fauna pirenaica con aves rapaces recuperándose, incluido el quebrantahuesos. Muy didáctico y sorprendente para los niños. Combinable con baño de tarde.</p>
+<p class="baby">Casco viejo empedrado pero manejable con carrito.</p>
+<a class="go" href="https://www.quebrantahuesos.org/" target="_blank" rel="noopener">Eco Museo (FCQ) →</a>
+</article>
+
+</div>
+</section>
+
+<!-- ============ FRANCIA ============ -->
+<section class="cat" id="francia">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--francia)"></span></span>
+<h2>Al otro lado: Francia</h2>
+</div>
+<p class="cat-sub">Por el Somport o el Portalet, el Bearne queda a tiro de piedra y cambia el decorado por completo.</p>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--francia)" data-ages="1,3,5">
+<h3>Zoo d'Asson</h3>
+<div class="meta"><span class="chip">🚗 ~1 h 30 por el Somport</span><span class="chip">⏱ Día completo</span><span class="chip">💶 ~18-20 € adulto aprox.</span><span class="chip">📅 Entradas online recomendadas</span></div>
+<p>Zoo familiar a pie de Pirineo con pandas rojos, canguros por los que se pasea entre ellos, lémures y jirafas. Tamaño perfecto para no reventar a los peques, con sombra y merenderos.</p>
+<p class="baby">Totalmente apto para carrito; probablemente el mejor plan de Francia con la bebé.</p>
+<a class="go" href="https://www.zoo-asson.org/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--francia)" data-ages="3,5">
+<h3>Grottes de Bétharram</h3>
+<div class="meta"><span class="chip">🚗 ~1 h 40, se pasa un poco del radio</span><span class="chip">⏱ Visita de ~1 h 20</span><span class="chip">💶 ~17 € adulto aprox.</span><span class="chip">📅 Reservar online</span></div>
+<p>Cueva espectacular que se recorre a pie, en barca por un lago subterráneo y en un trenecito minero. La combinación barca + tren dentro de una cueva es de las cosas que los niños recuerdan años después. Merece los minutos extra de coche.</p>
+<p class="baby">No apta para carrito; con bebé en mochila se puede, pero está pensada para 3+.</p>
+<a class="go" href="https://www.betharram.com/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--francia)" data-ages="1,3,5">
+<h3>Pau: funicular gratis y boulevard des Pyrénées</h3>
+<div class="meta"><span class="chip">🚗 ~1 h 20 por el Somport</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Funicular gratuito</span><span class="chip">📅 Sin reserva</span></div>
+<p>Día de ciudad francesa: el funicular gratuito sube del tren al boulevard des Pyrénées, con toda la cordillera de fondo. Castillo de Enrique IV, tiovivo, crêpes y parques. Buen plan si un día amenaza tormenta en la montaña.</p>
+<p class="baby">Ciudad llana y muy paseable con carrito.</p>
+<a class="go" href="https://www.tourismepau.com/" target="_blank" rel="noopener">Oficina de turismo →</a>
+</article>
+
+<article class="card" style="--accent:var(--francia)" data-ages="1,3,5">
+<h3>Lago de Bious-Artigues (Gabas)</h3>
+<div class="meta"><span class="chip">🚗 ~1 h 05 por el Portalet</span><span class="chip">⏱ Media jornada o día con picnic</span><span class="chip">💶 Parking de pago en verano</span><span class="chip">📅 Llegar pronto en agosto</span></div>
+<p>Lago de montaña con el pico del Midi d'Ossau reflejado en el agua. Paseo llano por la orilla, vacas, picnic y chapoteo de pies. Se combina de lujo con el tren de Artouste, que queda al lado.</p>
+<p class="baby">La pista de la orilla admite carrito todoterreno.</p>
+<a class="go" href="https://www.valleedossau.com/" target="_blank" rel="noopener">Turismo valle de Ossau →</a>
+</article>
+
+</div>
+</section>
+
+<!-- ============ AGUA ============ -->
+<section class="cat" id="agua">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--agua)"></span></span>
+<h2>Agua y tardes de calor</h2>
+</div>
+<p class="cat-sub">Badinas, pozas de río y piscinas para las horas de más sol, o para rematar una mañana de excursión.</p>
+<ul class="warnlist" style="margin-top:4px">
+<li style="border-left-color:var(--agua)"><strong>Seguridad en los ríos:</strong> ninguna badina tiene socorrista, el agua baja fría todo el verano (entrar poco a poco) y el fondo es de cantos: llevad escarpines. Muy importante: no os bañéis en el cauce del Gállego aguas abajo de los embalses (zona de Biescas, Oliván, Sabiñánigo); sufre crecidas súbitas por desembalses y hay carteles que lo advierten. Si hay tormenta o el río baja crecido, ese día toca piscina.</li>
+</ul>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--agua)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Badinas del Aragón en el Juncaral (Villanúa)</h3>
+<div class="meta"><span class="chip">🚗 15 min</span><span class="chip">⏱ Tarde o día con picnic</span><span class="chip">💶 Río gratis; Ecoparque de pago</span><span class="chip">📅 Sin reserva</span></div>
+<p>Pozas tranquilas y remansadas del río Aragón junto al bosque del Ecoparque El Juncaral: desde el aparcamiento del parque, un caminito lleva al río en pocos minutos. La mejor combinación de la zona: agua mansa, sombra, y bar, baños y tirolinas infantiles del Ecoparque al lado.</p>
+<p class="baby">De lo mejor con la bebé: remansos que apenas cubren y servicios a mano.</p>
+<a class="go" href="https://turismovillanua.es/" target="_blank" rel="noopener">Turismo Villanúa →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Playetas del río Aragón en Jaca</h3>
+<div class="meta"><span class="chip">🚗 5-10 min</span><span class="chip">⏱ Tardes cortas</span><span class="chip">💶 Gratis</span><span class="chip">📅 Mejor por la mañana o última hora</span></div>
+<p>El plan exprés desde casa: badinas y playetas de grava en el propio Aragón, en la zona de los puentes de San Miguel y San Salvador, bajando desde el paseo de la Cantera. Remansos someros para chapotear sin coger el coche apenas.</p>
+<p class="baby">Con la bebé, quedaos en las orillas que apenas cubren y sin corriente.</p>
+<a class="go" href="https://www.jacetania.es/" target="_blank" rel="noopener">Turismo Jacetania →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Pozas de Castiello de Jaca (el acueducto)</h3>
+<div class="meta"><span class="chip">🚗 15-20 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Gratis</span><span class="chip">📅 Ir temprano en agosto, se llena</span></div>
+<p>Pozas de agua cristalina con pequeñas cascadas bajo las ruinas del viejo acueducto, a 1 km del pueblo. Hay pozas someras para los peques y otras más hondas para los valientes. Es el rincón más fotografiado de la zona, así que madrugad.</p>
+<p class="baby">Solo en los bordes someros y en brazos; el resto es para los de 3 en adelante.</p>
+<a class="go" href="https://turismoruraljacetania.com/" target="_blank" rel="noopener">Turismo rural Jacetania →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Río Ara: Chopera de Broto y Gorga del Cura (Fiscal)</h3>
+<div class="meta"><span class="chip">🚗 40-50 min</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Gratis</span><span class="chip">📅 Llegar pronto para sombra y parking</span></div>
+<p>Las zonas de baño mejor acondicionadas del entorno, del programa "Ríos con magia": la Chopera de Broto tiene merendero, sombra y juegos infantiles a pie de pueblo, y en Fiscal la Gorga del Cura remansa el río en una poza estupenda con acceso señalizado. Agua algo más llevadera que la de los valles altos.</p>
+<p class="baby">La chopera de Broto es la mejor para la bebé: remansos junto al merendero.</p>
+<a class="go" href="https://www.turismosobrarbe.com/" target="_blank" rel="noopener">Turismo Sobrarbe →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Piscina fluvial de Burgui (río Esca, Navarra)</h3>
+<div class="meta"><span class="chip">🚗 ~1 h</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Gratis</span><span class="chip">📅 Temporada de baño de julio a comienzos de septiembre</span></div>
+<p>Junto al puente romano de Burgui, una presa remansa el Esca formando una piscina fluvial con orillas de grava, de las pocas zonas de baño con control sanitario oficial de la zona. Merendero con mesas y fogones bajo árboles grandes, y el pueblo de las almadías para pasear después.</p>
+<p class="baby">Orillas de grava someras, muy buenas para la bebé con escarpines.</p>
+<a class="go" href="https://www.burgui.es/turismo/" target="_blank" rel="noopener">Turismo Burgui y valle de Roncal →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="5">
+<h3>Foz de Biniés (río Veral)</h3>
+<div class="meta"><span class="chip">🚗 40-45 min</span><span class="chip">⏱ Parada de camino a Ansó</span><span class="chip">💶 Gratis</span><span class="chip">📅 Sin reserva</span></div>
+<p>Badinas de agua turquesa en un cañón de paredes de 200 metros que atraviesa la carretera de Ansó. Espectacular, pero el cauce va encajado y hay pozas profundas: mejor como chapuzón puntual con el mayor bien vigilado, no como tarde de juego con los pequeños.</p>
+<p class="baby">No recomendable con la bebé ni con los de 3-4; solo mirador y fotos.</p>
+<a class="go" href="https://www.jacetania.es/" target="_blank" rel="noopener">Turismo Jacetania →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="1,3,5">
+<h3>Piscinas de Jaca y de los pueblos</h3>
+<div class="meta"><span class="chip">🚗 0-20 min</span><span class="chip">⏱ Tardes</span><span class="chip">💶 Entrada municipal barata</span><span class="chip">📅 Sin reserva</span></div>
+<p>Las piscinas municipales de Jaca, con césped y vasos infantiles, son el plan de tarde por defecto. Las de pueblos como Villanúa o Hecho suelen estar más tranquilas y con vistas a la montaña.</p>
+<p class="baby">Vaso de chapoteo para la bebé en casi todas.</p>
+<a class="go" href="https://www.jaca.es/" target="_blank" rel="noopener">Ayuntamiento de Jaca →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="5">
+<h3>Rafting familiar en Murillo de Gállego</h3>
+<div class="meta"><span class="chip">🚗 40 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 ~40-60 € por persona aprox.</span><span class="chip">📅 Reserva; preguntar edad mínima</span></div>
+<p>Tramos tranquilos del río Gállego bajo los Mallos de Riglos, con empresas que hacen descensos familiares. La edad mínima suele rondar los 4-6 años según caudal y empresa: consultad para el mayor y quizá el de 4.</p>
+<p class="baby">No apto para los pequeños; plan para el de 5-6 con un adulto.</p>
+<a class="go" href="https://www.urpirineos.es/" target="_blank" rel="noopener">UR Pirineos →</a>
+</article>
+
+<article class="card" style="--accent:var(--agua)" data-ages="3,5">
+<h3>Embalse de Búbal y valle de Tena náutico</h3>
+<div class="meta"><span class="chip">🚗 35 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Alquiler kayak/paddle por horas</span><span class="chip">📅 Operadores de temporada, confirmar</span></div>
+<p>En verano suelen operar actividades náuticas tranquilas en los embalses del valle de Tena: kayak doble con niño delante, paddle y orillas para jugar. Confirmad qué operador está activo esta temporada.</p>
+<p class="baby">Orillas con sombra para la bebé mientras los mayores navegan.</p>
+<a class="go" href="https://www.valledetena.com/" target="_blank" rel="noopener">Turismo valle de Tena →</a>
+</article>
+
+</div>
+</section>
+
+<!-- ============ EVENTOS ============ -->
+<section class="cat" id="eventos">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--eventos)"></span></span>
+<h2>Eventos en vuestras fechas y avisos</h2>
+</div>
+<p class="cat-sub">Lo que coincide con la estancia del 27 de julio al 30 de agosto, y lo que no.</p>
+<ul class="warnlist">
+<li><strong>Día del Traje Ansotano (Ansó):</strong> se celebra el último domingo de agosto, que en 2026 cae en vuestro último día, el 30. Fiesta de Interés Turístico Nacional, con todo el pueblo vestido de época. Confirmad fecha en la web del ayuntamiento.</li>
+<li><strong>Fiestas de Biescas (San Roque):</strong> a mediados de agosto, con cabezudos, charangas y actividades infantiles. Buen plan de tarde-noche con los mayores.</li>
+<li><strong>Programación de verano:</strong> la Ciudadela de Jaca suele tener visitas teatralizadas y actividades familiares en agosto, y Loarre visitas nocturnas. Mirad las agendas al llegar.</li>
+<li><strong>Aviso:</strong> el Festival Folklórico de los Pirineos de Jaca no toca en 2026; es bienal y se celebró en 2025.</li>
+<li><strong>Aviso:</strong> Pirineos Sur (Lanuza) suele terminar a mediados de julio, antes de vuestra llegada.</li>
+<li><strong>Aviso:</strong> la Falaise aux Vautours de Aste-Béon (Francia) figura como cerrada; comprobad antes de planear ir. Alternativa gratis y cercana: ver buitres y quebrantahuesos desde el mirador de los Mallos de Riglos.</li>
+</ul>
+</section>
+
+<!-- ============ VISITAS ============ -->
+<section class="cat" id="visitas">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--sun)"></span></span>
+<h2>Qué hacer con cada visita</h2>
+</div>
+<p class="cat-sub">Los cinco planes con estrella (El Sarrio, telecabina de Panticosa, Lacuniacha, Ciudadela y Canfranc) funcionan con los dos grupos y merecen repetirse. Luego, cada visita tiene sus planes ideales.</p>
+<div class="itins">
+<div class="itin">
+<h3>Con la familia de la bebé de 1 año</h3>
+<ol>
+<li>Estación de Canfranc en tren regional, con carrito por los andenes</li>
+<li>Ciudadela de Jaca: ciervos del foso y paseo llano</li>
+<li>Telecabina de Panticosa: montaña sin esfuerzo</li>
+<li>Tren El Sarrio: el trayecto corto, bebés gratis</li>
+<li>Lacuniacha con mochila portabebés</li>
+<li>Día en Pau o lago de Bious-Artigues, ambos aptos con carrito</li>
+<li>Tarde de badina en El Juncaral (Villanúa), remansos que apenas cubren</li>
+</ol>
+</div>
+<div class="itin">
+<h3>Con la familia del niño de 4 años</h3>
+<ol>
+<li>Petit Train d'Artouste: el gran día de tren, reservad ya</li>
+<li>Lacuniacha: animales en semilibertad</li>
+<li>Tren Turístico del Valle de Tena, la ruta larga</li>
+<li>Cuevas de las Güixas: brujas y murciélagos</li>
+<li>Zoo d'Asson o castillo de Loarre</li>
+<li>Ibón de Piedrafita a pie: su primera cumbre</li>
+<li>Baño en las pozas de Castiello o en la Chopera de Broto</li>
+</ol>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<span class="blaze" aria-hidden="true" style="display:inline-flex;flex-direction:column;border-radius:2px;overflow:hidden"><span class="w" style="background:#F2F5EF"></span><span class="r" style="background:var(--tren)"></span></span>
+<p>Guía familiar del verano 2026 · Base en Jaca, del 27 de julio al 30 de agosto.<br>Precios y horarios orientativos: confirmad siempre en las webs oficiales enlazadas.</p>
+</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.agebtn');
+  var cards=document.querySelectorAll('.card[data-ages]');
+  var sections=document.querySelectorAll('section.cat');
+  function apply(age){
+    cards.forEach(function(c){
+      var ages=c.getAttribute('data-ages').split(',');
+      var show=(age==='all')||ages.indexOf(age)!==-1;
+      c.classList.toggle('hidden',!show);
+    });
+    sections.forEach(function(s){
+      var vis=s.querySelectorAll('.card[data-ages]:not(.hidden)').length;
+      var has=s.querySelectorAll('.card[data-ages]').length;
+      s.classList.toggle('allhidden',has>0&&vis===0);
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      apply(b.getAttribute('data-age'));
+    });
+  });
+  var modebtns=document.querySelectorAll('.modebtn');
+  modebtns.forEach(function(m){
+    m.addEventListener('click',function(){
+      modebtns.forEach(function(x){x.classList.remove('active');});
+      m.classList.add('active');
+      document.body.classList.toggle('mode-planes',m.getAttribute('data-mode')==='planes');
+      window.scrollTo({top:0});
+    });
+  });
+})();
+</script>
+</body>
+</html>
