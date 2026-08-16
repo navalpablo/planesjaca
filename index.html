@@ -24,6 +24,8 @@
   --cultura:#A8720D;
   --francia:#2E5E8C;
   --agua:#1F8A94;
+  --paseo:#5B7C1F;
+  --animal:#B5651D;
   --eventos:#7A4E8C;
   --card:#FFFFFF;
   --line:#D8DED6;
@@ -147,6 +149,17 @@ body.mode-planes .moodbar{display:block}
 
 /* ---------- MAPA ---------- */
 details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+
+/* ---------- CADUCABLE / CIERRES ---------- */
+.yearly{background:#F3EEF6;border:1px solid #DFD2E6;border-left:5px solid var(--eventos);border-radius:10px;padding:11px 14px;margin:2px 0 16px;font-size:.9rem}
+.yearly strong{color:var(--eventos)}
+.closes{list-style:none;margin-bottom:18px}
+.closes li{background:#fff;border:1px solid var(--line);border-left:5px solid var(--tren);border-radius:10px;padding:11px 14px;font-size:.92rem;margin-bottom:8px}
+.closes li.ok{border-left-color:var(--natura)}
+.closes li b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;margin-bottom:2px}
+.tag{font-family:'Spline Sans Mono',monospace;font-size:.68rem;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.tag.stop{background:#F7E2DD;color:#9A3418}
+.tag.go{background:#E4EFE6;color:#1E4D3B}
 .mapbox summary{padding:12px 16px;font-weight:600;cursor:pointer;color:var(--pine);list-style-position:inside}
 #map{height:420px}
 @media(max-width:600px){#map{height:340px}}
@@ -184,6 +197,8 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 <a href="#cultura"><span class="dot" style="background:var(--cultura)"></span>Cultura y pueblos</a>
 <a href="#francia"><span class="dot" style="background:var(--francia)"></span>Francia</a>
 <a href="#agua"><span class="dot" style="background:var(--agua)"></span>Agua</a>
+<a href="#paseos"><span class="dot" style="background:var(--paseo)"></span>Paseos y bici</a>
+<a href="#animales"><span class="dot" style="background:var(--animal)"></span>Animales y ponis</a>
 <a href="#eventos"><span class="dot" style="background:var(--eventos)"></span>Eventos y avisos</a>
 <a href="#visitas"><span class="dot" style="background:var(--sun)"></span>Con cada visita</a>
 </div>
@@ -411,6 +426,47 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 <div class="extra"><strong>Si aún hay cuerda:</strong> volver por Ansó y merendar allí, con parada de fotos en la foz de Biniés (solo mirador con los peques).</div>
 </article>
 
+<article class="card plan" style="--accent:var(--paseo)" data-ages="1,3,5">
+<span class="star">★ Accesible</span>
+<h3>Día tranquilo en Biescas: Santa Elena y piscina</h3>
+<div class="meta"><span class="chip">🚗 40 min por trayecto</span><span class="chip">Bueno con abuelos</span><span class="chip">Medio día</span></div>
+<ul class="tl">
+<li><b>10:15</b> Salida de Jaca por Sabiñánigo</li>
+<li><b>11:00</b> Sendero accesible de Santa Elena: 1,5 km ida y vuelta de zahorra, con bancos, sombra y el fuerte y la ermita al lado</li>
+<li><b>13:30</b> Comida en Biescas</li>
+<li><b>16:00</b> Piscina municipal de Biescas (vaso infantil y césped) o un tramo corto de la Vía Verde del Gállego</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> La Terraza de Arratiecho, con platos para niños y ambiente familiar. Variantes: Pizzería La Tea, rápida; o El Molino de Escuer, con tronas.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> la Vía Verde del Gállego sale del propio Biescas y es llana: se pedalea o se anda lo que apetezca y se da la vuelta.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--paseo)" data-ages="1,3,5">
+<h3>Día de embalse: paseo de Lanuza</h3>
+<div class="meta"><span class="chip">🚗 50 min por trayecto</span><span class="chip">Lo más al este</span><span class="chip">Medio día</span></div>
+<ul class="tl">
+<li><b>10:15</b> Salida de Jaca subiendo el valle de Tena</li>
+<li><b>11:15</b> Camino Natural del embalse de Lanuza: llano, con la Foratata enfrente; se anda lo que se quiera y vuelta</li>
+<li><b>13:30</b> Comida en Sallent de Gállego, a 5 min</li>
+<li><b>16:00</b> Vuelta con parada opcional en el mirador de Hoz de Jaca</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> Casa Solano en Sallent, casera y de raciones generosas. Variante: bajar a El Pueyo de Jaca al Mesón El Embalse (974 48 70 48), con terraza sobre el agua.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> el pueblo de Lanuza, reconstruido junto al agua, es un paseo corto y muy fotogénico.</div>
+</article>
+
+<article class="card plan" style="--accent:var(--animal)" data-ages="3,5">
+<h3>Día de ponis y badinas: Villanovilla y Villanúa</h3>
+<div class="meta"><span class="chip">🚗 20 min por trayecto</span><span class="chip">Ritmo muy tranquilo</span></div>
+<ul class="tl">
+<li><b>10:30</b> Salida sin prisas hacia Villanovilla</li>
+<li><b>11:00</b> Paseo en poni de media hora en Pirineo Ecuestre (no necesita reserva) y rato viendo los caballos</li>
+<li><b>12:30</b> A Villanúa: badinas del Juncaral o paseo del PR-4 a la sombra</li>
+<li><b>13:45</b> Comida en La Estrella (974 37 80 03), con tronas y terraza</li>
+<li><b>16:00</b> Vuelta a Jaca a la siesta</li>
+</ul>
+<div class="food"><strong>Dónde comer:</strong> La Estrella en Villanúa, con menú del día y bocadillos. Variantes: picnic junto al río en el Juncaral, o La Putxera si vais solo adultos otro día.</div>
+<div class="extra"><strong>Si aún hay cuerda:</strong> canoa o fútbol-golf en el Ecoparque (las tirolinas piden 1,15 m), o la visita de tarde a la cueva de las Güixas, que además es plan de interior si hay humo.</div>
+</article>
+
 </div>
 </section>
 
@@ -444,7 +500,7 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 <article class="card" style="--accent:var(--tren)" data-ages="3,5">
 <h3>Petit Train d'Artouste (Francia)</h3>
 <div class="meta"><span class="chip">🚗 1 h 10 por el Portalet</span><span class="chip">⏱ Telecabina + 55 min de tren</span><span class="chip">💶 ~30 € adulto aprox.</span><span class="chip">📅 Reserva imprescindible</span></div>
-<p>El tren turístico más alto de Europa: telecabina desde el lago de Fabrèges y luego un tren de vía estrecha a 2.000 m que bordea la montaña hasta el lago de Artouste, con el Midi d'Ossau enfrente. Plan de día completo inolvidable para los de 4 a 6 años.</p>
+<p>El tren turístico más alto de Europa: telecabina desde el lago de Fabrèges y luego un tren de vía estrecha a 2.000 m que bordea la montaña hasta el lago de Artouste, con el Midi d'Ossau enfrente. Plan de día completo inolvidable para los de 4 a 6 años. Abre hasta el 4 de octubre, pero desde el 31 de agosto baja a una salida por hora.</p>
 <p class="baby">Se puede con bebé en brazos, pero es día largo; mejor reservarlo para la visita del niño de 4 años.</p>
 <a class="go" href="https://artouste.fr/" target="_blank" rel="noopener">Web oficial →</a>
 </article>
@@ -452,7 +508,7 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 <article class="card" style="--accent:var(--tren)" data-ages="1,3,5">
 <span class="star">★ Repetible</span>
 <h3>Telecabina de Panticosa + ibón de los Asnos</h3>
-<div class="meta"><span class="chip">🚗 45 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Consultar tarifa verano</span><span class="chip">📅 Sin reserva normalmente</span></div>
+<div class="meta"><span class="chip">🚗 45 min</span><span class="chip">⏱ Media jornada</span><span class="chip">💶 Consultar tarifa verano</span><span class="chip">⚠ Cierra el 30 de agosto</span></div>
 <p>La telecabina sube desde el pueblo a unos 1.900 m. Arriba: restaurante con terraza, zona de juegos y un paseo suave de 20-30 min hasta el ibón de los Asnos. Vistas enormes con esfuerzo mínimo, funciona con cualquier edad.</p>
 <p class="baby">Cabina apta para carrito plegado; arriba, mochila portabebés para el paseo.</p>
 <a class="go" href="https://www.formigal-panticosa.com/" target="_blank" rel="noopener">Web oficial Aramón →</a>
@@ -482,7 +538,7 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 <article class="card" style="--accent:var(--natura)" data-ages="1,3,5">
 <span class="star">★ Repetible</span>
 <h3>Lacuniacha, parque faunístico (Piedrafita de Jaca)</h3>
-<div class="meta"><span class="chip">🚗 35 min</span><span class="chip">⏱ 2-3 h de recorrido a pie</span><span class="chip">💶 ~17 € adulto, niños menos, entrada online</span><span class="chip">📅 Comprar entrada con antelación en agosto</span></div>
+<div class="meta"><span class="chip">🚗 35 min</span><span class="chip">⏱ 2-3 h de recorrido a pie</span><span class="chip">💶 ~17 € adulto, niños menos, entrada online</span><span class="chip">⚠ Desde el 25 ago, taquilla hasta las 15:00</span></div>
 <p>Un bosque de alta montaña con ciervos, bisontes, linces, sarrios y caballos Przewalski en semilibertad. El circuito es un paseo señalizado con miradores; probablemente el plan más redondo de toda la zona para estas edades.</p>
 <p class="baby">Camino de montaña con cuestas: se puede con carrito todoterreno, pero la mochila portabebés es mucho más cómoda.</p>
 <a class="go" href="https://www.lacuniacha.es/" target="_blank" rel="noopener">Web oficial →</a>
@@ -506,7 +562,7 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 
 <article class="card" style="--accent:var(--natura)" data-ages="1,3,5">
 <h3>Pradera de Ordesa desde Torla</h3>
-<div class="meta"><span class="chip">🚗 1 h 10 a Torla + bus lanzadera</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Bus ~5 €</span><span class="chip">📅 En agosto, bus obligatorio; madrugad</span></div>
+<div class="meta"><span class="chip">🚗 1 h 10 a Torla + bus lanzadera</span><span class="chip">⏱ Día completo</span><span class="chip">💶 Bus ~5 €</span><span class="chip">📅 Bus obligatorio hasta el 20 de septiembre; cupo de 1.800 personas</span></div>
 <p>El valle glaciar más famoso de España. Con niños pequeños no hace falta ir a la Cola de Caballo: el paseo llano por la pradera junto al río Arazas, entre paredes de mil metros, ya es una pasada. Volvéis en el bus cuando se cansen.</p>
 <p class="baby">La pista de la pradera admite carrito todoterreno en su primer tramo.</p>
 <a class="go" href="https://www.ordesa.net/" target="_blank" rel="noopener">Info práctica y bus →</a>
@@ -720,20 +776,173 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
 </div>
 </section>
 
+<!-- ============ PASEOS Y BICI ============ -->
+<section class="cat" id="paseos">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--paseo)"></span></span>
+<h2>Paseos fáciles, senderos accesibles y bici</h2>
+</div>
+<p class="cat-sub">Caminos llanos y señalizados para que los de 3 a 6 años los hagan andando enteros, con carrito o en bici. Perfectos para media mañana o una tarde suave.</p>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--paseo)" data-ages="1,3,5">
+<span class="star">★ Accesible</span>
+<h3>Sendero accesible de Santa Elena (Biescas)</h3>
+<div class="meta"><span class="chip">🚗 40 min</span><span class="chip">1,5 km ida y vuelta</span><span class="chip">💶 Gratis</span><span class="chip">♿ Adaptado</span></div>
+<p>Saliendo de Biescas hacia Francia por la A-136, pasado el km 3, a la derecha está el parking de Santa Elena. Sendero lineal de zahorra con pendientes por debajo del 10%, rampas, bancos de descanso y paneles con braille y altorrelieve; hay dos plazas de aparcamiento reservadas. El fuerte de Santa Elena y la ermita están ahí mismo y enganchan a los mayores.</p>
+<p class="baby">Rueda perfecto con carrito, y con abuelos o movilidad reducida es la mejor opción del entorno.</p>
+<a class="go" href="https://www.turismobiescas.com/" target="_blank" rel="noopener">Turismo Biescas →</a>
+</article>
+
+<article class="card" style="--accent:var(--paseo)" data-ages="1,3,5">
+<h3>Vía Verde del Gállego (Biescas)</h3>
+<div class="meta"><span class="chip">🚗 35 min</span><span class="chip">Llana, sin apenas desnivel</span><span class="chip">💶 Gratis</span><span class="chip">🚲 La mejor para bici</span></div>
+<p>Arranca pasado el parque de La Conchada de Biescas hacia Orós Alto, señalizada en blanco y verde. Asfalto y pistas en muy buen estado paralelas al río, con el aula de naturaleza de Oliván para parar. El de 5-6 pedalea tramos y los pequeños van en silla o remolque; también se anda estupendamente.</p>
+<p class="baby">Firme liso, ideal con carrito. Aviso: pasear sí, pero nada de bañarse en el cauce del Gállego por los desembalses.</p>
+<a class="go" href="https://www.turismobiescas.com/" target="_blank" rel="noopener">Turismo Biescas →</a>
+</article>
+
+<article class="card" style="--accent:var(--paseo)" data-ages="1,3,5">
+<h3>Paseo del Juncaral, PR-4 (Villanúa)</h3>
+<div class="meta"><span class="chip">🚗 15 min</span><span class="chip">4,8 km circular, 1 h - 1 h 30</span><span class="chip">💶 Gratis</span><span class="chip">🛴 Patinetes de alquiler</span></div>
+<p>Circular junto al río Aragón que rodea el Ecoparque y vuelve por el Camino de Santiago. Llano, muy bien señalizado, casi todo en sombra de pinar y bosque de ribera, con puentes de madera que encantan a los peques. Tiene atajos señalizados para acortar si se cansan, y el Ecoparque alquila patinetes eléctricos para recorrerlo.</p>
+<p class="baby">Apto con carrito. Se combina con las badinas y con el parque de aventura del propio Ecoparque.</p>
+<a class="go" href="https://turismovillanua.es/" target="_blank" rel="noopener">Turismo Villanúa →</a>
+</article>
+
+<article class="card" style="--accent:var(--paseo)" data-ages="1,3,5">
+<h3>Camino Natural del embalse de Lanuza (Sallent)</h3>
+<div class="meta"><span class="chip">🚗 50 min</span><span class="chip">Llano, PR-HU 92</span><span class="chip">💶 Gratis</span><span class="chip">🏔 El más al este y alto</span></div>
+<p>Bordea el embalse entre Sallent y Lanuza con la Peña Foratata siempre delante. Llano, con bancos y mesas para parar, y agua a la vista todo el rato. Al estar en la cabecera del valle es la opción más alejada de cualquier humareda del oeste.</p>
+<p class="baby">Apto con carrito y perfecto para abuelos: se anda lo que se quiera y se da la vuelta.</p>
+<a class="go" href="https://www.valledetena.com/" target="_blank" rel="noopener">Turismo valle de Tena →</a>
+</article>
+
+<article class="card" style="--accent:var(--paseo)" data-ages="1,3,5">
+<h3>Cota 1.900 de Panticosa, arriba de la telecabina</h3>
+<div class="meta"><span class="chip">🚗 45 min + telecabina</span><span class="chip">Pistas anchas y llanas</span><span class="chip">💶 Con el billete del remonte</span></div>
+<p>Sin caminar nada llegáis a los 1.900 m: arriba hay pistas anchas donde los peques corretean sin peligro, miradores y el paseo suave a los ibones de los Asnos o Sabocos (una hora larga, desnivel corto). El paseo de montaña más fácil de conseguir de toda la zona.</p>
+<p class="baby">Cabina apta con carrito plegado; arriba, mochila para el paseo a los ibones.</p>
+<a class="go" href="https://www.formigal-panticosa.com/" target="_blank" rel="noopener">Web oficial Aramón →</a>
+</article>
+
+<article class="card" style="--accent:var(--paseo)" data-ages="3,5">
+<h3>Fondo del valle en la Selva de Oza (Hecho)</h3>
+<div class="meta"><span class="chip">🚗 1 h</span><span class="chip">Pista llana junto al río</span><span class="chip">💶 Gratis</span></div>
+<p>La pista del fondo del valle junto al Aragón Subordán es prácticamente llana y se anda el rato que apetezca, con praderas, sombra de hayedo y pozas al lado. La Corona de los Muertos es una circular sencilla de unos 50 minutos si queréis algo más.</p>
+<p class="baby">Los tramos llanos admiten carrito todoterreno.</p>
+<a class="go" href="https://www.hecho.es/" target="_blank" rel="noopener">Turismo valle de Hecho →</a>
+</article>
+
+</div>
+</section>
+
+<!-- ============ ANIMALES Y PONIS ============ -->
+<section class="cat" id="animales">
+<div class="cat-head">
+<span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--animal)"></span></span>
+<h2>Animales, ponis y actividades organizadas</h2>
+</div>
+<p class="cat-sub">Lo que más ilusión hace a esta edad: tocar animales, montar por primera vez y actividades guiadas pensadas para peques.</p>
+<p class="empty-msg">Ningún plan de esta categoría encaja con el filtro elegido.</p>
+<div class="grid">
+
+<article class="card" style="--accent:var(--animal)" data-ages="3,5">
+<span class="star">★ Primera vez</span>
+<h3>Paseo en poni: Pirineo Ecuestre (Villanovilla)</h3>
+<div class="meta"><span class="chip">🚗 20 min</span><span class="chip">⏱ 30 min de paseo</span><span class="chip">💶 Confirmar por teléfono</span><span class="chip">📅 Poni sin reserva</span></div>
+<p>A 14 km de Jaca, centro homologado por la Federación Hípica. El paseo en poni de media hora se hace por el propio centro, guiado por los padres y supervisado por los monitores, y no necesita reserva. Para adultos hay rutas a caballo de 1 h (18 €) a jornada completa con picnic.</p>
+<p class="baby">Montar es a partir de 3 años; los más peques disfrutan igual viendo los caballos.</p>
+<a class="go" href="https://www.pirineoecuestre.com/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--animal)" data-ages="3,5">
+<h3>Poni y burrotrekking: Caballos del Pirineo</h3>
+<div class="meta"><span class="chip">🚗 20 min</span><span class="chip">⏱ 30 min el poni; medio día el burro</span><span class="chip">💶 Poni económico; caballo desde 25 €</span><span class="chip">📅 Reservar el burro</span></div>
+<p>También en Villanovilla. Además del poni de media hora, ofrecen burrotrekking: excursiones de medio día o día completo en las que el burro carga las mochilas y los niños caminan a su lado. Es la manera de que los de 5-6 años hagan una ruta larga sin protestar.</p>
+<p class="baby">En el burrotrekking, los bebés van en portabebés mientras el burro lleva el peso.</p>
+<a class="go" href="https://caballosdelpirineo.com/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--animal)" data-ages="3,5">
+<h3>Paseos a caballo y poni en Villanúa</h3>
+<div class="meta"><span class="chip">🚗 15 min</span><span class="chip">⏱ 30 min en poni, 1 h a caballo</span><span class="chip">📞 974 37 84 65</span></div>
+<p>Rutas por senderos entre bosques bordeando el río Aragón, cruzando incluso el Camino de Santiago. Media hora en poni para los niños y una hora a caballo para adultos. Se reserva en la oficina de turismo de Villanúa (Camino de la Fuente, 1).</p>
+<p class="baby">Se combina de lujo con las badinas del Juncaral el mismo día.</p>
+<a class="go" href="https://turismovillanua.es/" target="_blank" rel="noopener">Turismo Villanúa →</a>
+</article>
+
+<article class="card" style="--accent:var(--animal)" data-ages="1,3,5">
+<span class="star">★ Repetible</span>
+<h3>Lacuniacha: 120 animales en semilibertad</h3>
+<div class="meta"><span class="chip">🚗 45 min</span><span class="chip">⏱ 2-3 h</span><span class="chip">⚠ Desde el 25 ago, taquilla hasta las 15:00</span></div>
+<p>Más de 120 individuos de 15 especies (lobo, oso pardo, bisonte europeo, caballo de Przewalski, lince, ciervo) en un bosque de montaña. La ficha completa está en la sección de naturaleza; aquí como recordatorio de que es la mejor opción de animales de toda la zona.</p>
+<p class="baby">Mochila portabebés, no carrito: el sendero es de tierra y piedra. Se alquilan en recepción.</p>
+<a class="go" href="https://www.lacuniacha.es/" target="_blank" rel="noopener">Web oficial →</a>
+</article>
+
+<article class="card" style="--accent:var(--animal)" data-ages="3,5">
+<h3>La Noche de los Murciélagos (Villanúa)</h3>
+<div class="meta"><span class="chip">🚗 15 min</span><span class="chip">🌙 Sábados de julio y agosto, 20:00</span><span class="chip">💶 ~8 € adultos, 6 € niños</span><span class="chip">📅 Reservar</span></div>
+<p>Versión nocturna de la visita a la cueva de las Güixas, apta para toda la familia: se entra al anochecer y se ven salir los murciélagos. El último fin de semana de agosto celebran además la Semana de las Güixas. Actividad de interior, perfecta si hay humo o mal tiempo.</p>
+<p class="baby">Mejor a partir de 3-4 años; con bebé, en portabebés y contando con que es tarde.</p>
+<a class="go" href="https://turismovillanua.es/" target="_blank" rel="noopener">Reservas y horarios →</a>
+</article>
+
+<article class="card" style="--accent:var(--animal)" data-ages="1,3,5">
+<h3>Ecoparque El Juncaral: canoa y fútbol-golf</h3>
+<div class="meta"><span class="chip">🚗 15 min</span><span class="chip">⏱ Media jornada</span><span class="chip">📞 606 79 72 39</span><span class="chip">⚠ En septiembre, solo fines de semana</span></div>
+<p>Ojo con las tirolinas: necesitan 1,15 m de altura (unos 6 años), así que aún se os quedan grandes. Lo que sí funciona con peques es el paseo en canoa por el canal artificial, el fútbol-golf y el tiro con arco. En julio y agosto abre todos los días de 10:00 a 20:00.</p>
+<p class="baby">La canoa es apta para familias con niños pequeños; se combina con las badinas del río.</p>
+<a class="go" href="https://turismovillanua.es/" target="_blank" rel="noopener">Turismo Villanúa →</a>
+</article>
+
+<article class="card" style="--accent:var(--animal)" data-ages="5">
+<h3>Perseidas y cielos oscuros del Sobrarbe</h3>
+<div class="meta"><span class="chip">🌙 Nocturno</span><span class="chip">💶 Gratis</span><span class="chip">📅 Sin reserva</span></div>
+<p>El Sobrarbe es Destino Turístico Starlight y sus cielos permiten ver estrellas fugaces a simple vista, sin telescopio, alejándose de los pueblos. No hay programa fijo de observaciones guiadas en agosto; las jornadas de la Agrupación Astronómica de Huesca en el castillo de Aínsa son en noviembre.</p>
+<p class="baby">Solo para el mayor y con siesta previa: es actividad de trasnochar.</p>
+<a class="go" href="https://www.turismosobrarbe.com/" target="_blank" rel="noopener">Turismo Sobrarbe →</a>
+</article>
+
+</div>
+</section>
+
 <!-- ============ EVENTOS ============ -->
 <section class="cat" id="eventos">
 <div class="cat-head">
 <span class="cat-blaze" aria-hidden="true"><span class="w"></span><span style="background:var(--eventos)"></span></span>
 <h2>Eventos en vuestras fechas y avisos</h2>
 </div>
-<p class="cat-sub">Lo que coincide con la estancia del 27 de julio al 30 de agosto, y lo que no.</p>
+<p class="cat-sub">Agenda verificada para la segunda quincena de agosto de 2026, y hasta cuándo funciona cada cosa.</p>
+
+<div class="yearly"><strong>⚠ Contenido a revisar cada año.</strong> Fechas, precios y horarios de esta sección son de la temporada 2026. Para el verano de 2027 hay que actualizarla entera: las fiestas se mueven, los cierres de temporada cambian y algunos eventos son bienales.</div>
+
+<h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;margin:6px 0 8px">Hasta cuándo funciona cada cosa</h3>
+<ul class="closes">
+<li><b>Telecabina de Panticosa <span class="tag stop">cierra el 30 de agosto</span></b>La temporada de verano va del 4 de julio al 30 de agosto de 2026, de 9:30 a 17:00 (última bajada 17:15). Cierra justo el último día de la estancia: no lo dejéis para el final.</li>
+<li><b>Remontes de verano de Astún <span class="tag stop">fin de agosto</span></b>El telesilla de verano funciona esta temporada (16 € adulto en taquilla), pero confirmad la fecha de cierre con la estación. Astún y Candanchú están en obras de la telecabina de conexión, prevista para 2027.</li>
+<li><b>Lacuniacha <span class="tag go">sigue abierto</span></b>Abierto todos los días en agosto. Ojo al cambio: desde el 25 de agosto cierra a las 18:00 y la taquilla a las 15:00, con última entrada 3 horas antes del cierre. Desde el 9 de septiembre cierra miércoles y jueves.</li>
+<li><b>Cueva de las Güixas <span class="tag go">todo el año</span></b>Las visitas guiadas siguen en septiembre. Lo que termina con agosto es la Noche de los Murciélagos de los sábados.</li>
+<li><b>Ecoparque El Juncaral <span class="tag stop">solo findes en septiembre</span></b>Julio y agosto, todos los días de 10:00 a 20:00. En septiembre solo fines de semana, de 10:00 a 19:00, y la temporada llega hasta mediados de octubre.</li>
+<li><b>Petit Train d'Artouste <span class="tag go">hasta el 4 de octubre</span></b>Abierto del 8 de mayo al 4 de octubre de 2026. Importante: la alta frecuencia (salidas cada 30 min, de 9:00 a 17:00) es hasta el 30 de agosto; desde el 31 pasa a una salida por hora, de 10:00 a 15:00.</li>
+<li><b>Bus lanzadera de Ordesa <span class="tag go">hasta el 20 de septiembre</span></b>Obligatorio del 19 de junio al 20 de septiembre: en ese periodo no se sube en coche a la Pradera. Salidas cada 15-20 min. El valle tiene un cupo de 1.800 personas simultáneas y en agosto puede cerrarse a media mañana: hay que estar en Torla antes de las 8:00.</li>
+<li><b>Trenes El Sarrio <span class="tag go">temporada larga</span></b>Funcionan de mayo-junio a octubre, pero salen con un mínimo de viajeros y según la meteorología, y las frecuencias bajan a final de temporada. Reservas en el 644 005 130 (Tramacastilla). En 2026 sale desde el parking de los Estachos, que es de pago.</li>
+<li><b>Piscinas municipales <span class="tag stop">confirmar</span></b>La temporada de baño al aire libre suele cerrar el último fin de semana de agosto o el primero de septiembre. Confirmad con cada ayuntamiento. La piscina cubierta de Jaca abre todo el año.</li>
+</ul>
+
+<h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;margin:14px 0 8px">Fiestas y eventos del 15 al 31 de agosto</h3>
 <ul class="warnlist">
-<li><strong>Día del Traje Ansotano (Ansó):</strong> se celebra el último domingo de agosto, que en 2026 cae en vuestro último día, el 30. Fiesta de Interés Turístico Nacional, con todo el pueblo vestido de época. Confirmad fecha en la web del ayuntamiento.</li>
-<li><strong>Fiestas de Biescas (San Roque):</strong> a mediados de agosto, con cabezudos, charangas y actividades infantiles. Buen plan de tarde-noche con los mayores.</li>
-<li><strong>Programación de verano:</strong> la Ciudadela de Jaca suele tener visitas teatralizadas y actividades familiares en agosto, y Loarre visitas nocturnas. Mirad las agendas al llegar.</li>
-<li><strong>Aviso:</strong> el Festival Folklórico de los Pirineos de Jaca no toca en 2026; es bienal y se celebró en 2025.</li>
-<li><strong>Aviso:</strong> Pirineos Sur (Lanuza) suele terminar a mediados de julio, antes de vuestra llegada.</li>
-<li><strong>Aviso:</strong> la Falaise aux Vautours de Aste-Béon (Francia) figura como cerrada; comprobad antes de planear ir. Alternativa gratis y cercana: ver buitres y quebrantahuesos desde el mirador de los Mallos de Riglos.</li>
+<li><strong>Fiestas de Biescas, del 14 al 18 de agosto:</strong> Asunción, San Roque y romería a Santa Elena el día 18. Carrozas, charanga y batucada, cabezudos, jota, mercado artesanal y bombas japonesas infantiles. Con bebés, mejor los actos de día: evitad los toros de fuego y la pirotecnia nocturna.</li>
+<li><strong>Fiestas de Panticosa, del 13 al 16 de agosto:</strong> orquestas, pastorada, palotiau y actividades para niños. Se solapa con la subida a la telecabina si vais esos días.</li>
+<li><strong>Fiestas de El Pueyo de Jaca, del 27 al 30 de agosto:</strong> caen justo en el fin de semana de despedida, y el pueblo está a diez minutos de Panticosa.</li>
+<li><strong>Día del Traje Típico Ansotano, del 28 al 31 de agosto:</strong> día grande el domingo 30. Más de 120 vecinos con el traje tradicional, escenificación de costumbres, ronda de jotas, teatro y mercado artesanal. Fiesta de Interés Turístico Nacional. Queda al oeste: comprobad antes cómo está el aire.</li>
+<li><strong>La Morisma de Aínsa, sábado 29 de agosto a las 22:30:</strong> representación bienal de moros y cristianos en la plaza porticada, con medio millar de participantes y entradas de grada en lamorisma.com. Es tarde y multitudinaria para los peques, pero la villa medieval de Aínsa de día es un planazo familiar.</li>
+<li><strong>Corrección importante:</strong> el Mercado Medieval de Jaca ya NO se celebra a finales de agosto. En 2026 se traslada al 25-27 de septiembre, dentro de las jornadas "Jaca, Reino y Leyenda", así que os lo perdéis por poco.</li>
+<li><strong>Aviso:</strong> el Festival Folklórico de los Pirineos de Jaca no toca en 2026; es bienal y se celebró en 2025. Pirineos Sur (Lanuza) terminó a mediados de julio.</li>
+<li><strong>Aviso:</strong> la Falaise aux Vautours de Aste-Béon (Francia) sigue cerrada. Alternativa: buitres y quebrantahuesos desde el mirador de los Mallos de Riglos, aunque esa zona depende del estado del incendio.</li>
+<li><strong>Talleres y cine de verano:</strong> los ayuntamientos publican la programación infantil con poca antelación y buena parte va dentro de las fiestas. Mirad las redes de Jaca, Sabiñánigo y Biescas al llegar la semana.</li>
 </ul>
 </section>
 
@@ -800,7 +1009,10 @@ details.mapbox{margin:4px 0 16px;border:1px solid var(--line);border-radius:12px
     'dia-de-rio-la-chopera-de-broto':{m:['calor'],c:[42.604,-0.124]},
     'dia-frances-zoo-de-asson':{m:['perfecto'],c:[43.139,-0.249]},
     'medio-dia-expres-telesilla-de-astun':{m:['perfecto','cansados'],c:[42.812,-0.506]},
-    'dia-navarro-burgui-y-el-valle-de-roncal':{m:['calor'],c:[42.708,-1.003]}
+    'dia-navarro-burgui-y-el-valle-de-roncal':{m:['calor'],c:[42.708,-1.003]},
+    'dia-tranquilo-en-biescas-santa-elena-y-piscina':{m:['perfecto','cansados','calor'],c:[42.664,-0.312]},
+    'dia-de-embalse-paseo-de-lanuza':{m:['perfecto','cansados'],c:[42.777,-0.331]},
+    'dia-de-ponis-y-badinas-villanovilla-y-villanua':{m:['calor','cansados','perfecto'],c:[42.652,-0.494]}
   };
 
   function slug(t){
