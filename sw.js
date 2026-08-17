@@ -1,5 +1,5 @@
 /* Verano en Jaca 2026 · service worker */
-var CACHE = 'jaca26-v4';
+var CACHE = 'jaca26-v5';
 var CORE = [
   './',
   './manifest.json',
