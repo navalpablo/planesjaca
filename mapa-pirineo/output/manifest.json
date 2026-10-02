@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-02T20:23:49.177768+00:00",
+  "created_utc": "2026-10-02T20:28:14.000791+00:00",
   "size_cm": [
     150,
     60
@@ -145,11 +145,6 @@
       "y": 4761348.46095047
     },
     {
-      "label": "Pic Long\n2 232 m",
-      "x": 327604.01247892843,
-      "y": 4744953.540798566
-    },
-    {
       "label": "Ori\n2 017 m",
       "x": 173389.6240847839,
       "y": 4767335.586436477
@@ -173,6 +168,11 @@
       "label": "VALLE DEL ARAGÓN",
       "x": 212728.21095025528,
       "y": 4736916.533577724
+    },
+    {
+      "label": "VALLE DE TENA",
+      "x": 229731.4014714766,
+      "y": 4733449.330354761
     },
     {
       "label": "ORDESA",
@@ -641,20 +641,20 @@
       "sha256": "f5fbe5dd18440057402ef6787896e8b2ef294f702fdf070d197b5b2623c49c1d"
     },
     "vista-previa.jpg": {
-      "bytes": 670190,
-      "sha256": "4a86231a8425777a9f2ae592573245346d82213ca4201ac0d52933c4f10c2fe4"
+      "bytes": 804563,
+      "sha256": "2dd015cddabf453234ce96656e5a2a75b13ba09c0ad1aca804475c4ed8a6012a"
     },
     "pirineos-150x60cm.png": {
-      "bytes": 37845165,
-      "sha256": "4d041c530f8c6206399f6b5279307cdabd7365a80b5487d5345ea68471857f8e"
+      "bytes": 37843542,
+      "sha256": "1fe70086a14aa6f293e27830f362193ecd9d6198efb97e132dac2ca2ffe22c53"
     },
     "pirineos-150x60cm.pdf": {
-      "bytes": 40861190,
-      "sha256": "5d17da11d3a595ccc6c68917f9025c02fb8ecb9c841c5bdcc210a740df998f90"
+      "bytes": 40857873,
+      "sha256": "89bfcea6e14707673810bed632f8d8978c6ebeed8a7c8500f16b875464c84e6c"
     },
     "detalle-picos.jpg": {
-      "bytes": 542896,
-      "sha256": "cfb2b9e884a5b1e03bd9828a6029890955d193d43716d3e770cef4ee7114cce6"
+      "bytes": 542453,
+      "sha256": "a2de374dd4fcd4c059a06844e798c4df705b37f68fdce41a1c9eb1525f77bbe8"
     }
   }
 }
