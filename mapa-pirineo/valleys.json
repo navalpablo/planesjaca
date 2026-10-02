@@ -1,0 +1,82 @@
+[
+  {
+    "name": "VALLE DE ANSÓ",
+    "lon": -0.862,
+    "lat": 42.831
+  },
+  {
+    "name": "VALLE DE HECHO",
+    "lon": -0.721,
+    "lat": 42.81
+  },
+  {
+    "name": "VALLE DEL ARAGÓN",
+    "lon": -0.509,
+    "lat": 42.731
+  },
+  {
+    "name": "VALLE DE TENA",
+    "lon": -0.304,
+    "lat": 42.758
+  },
+  {
+    "name": "ORDESA",
+    "lon": -0.007,
+    "lat": 42.645
+  },
+  {
+    "name": "VALLE DE BENASQUE",
+    "lon": 0.586,
+    "lat": 42.621
+  },
+  {
+    "name": "VALLÉE D'ASPE",
+    "lon": -0.598,
+    "lat": 42.966
+  },
+  {
+    "name": "VALLÉE D'OSSAU",
+    "lon": -0.42,
+    "lat": 43.006
+  },
+  {
+    "name": "VAL D'AZUN",
+    "lon": -0.173,
+    "lat": 42.956
+  },
+  {
+    "name": "VALLÉE D'AURE",
+    "lon": 0.342,
+    "lat": 42.879
+  },
+  {
+    "name": "VALLÉE DU LOURON",
+    "lon": 0.408,
+    "lat": 42.809
+  },
+  {
+    "name": "VAL D'ARAN",
+    "lon": 0.83,
+    "lat": 42.807
+  },
+  {
+    "name": "VALL DE BOÍ",
+    "lon": 0.821,
+    "lat": 42.493
+  },
+  {
+    "name": "VALLS D'ÀNEU",
+    "lon": 1.097,
+    "lat": 42.623
+  },
+  {
+    "name": "VICDESSOS",
+    "lon": 1.49,
+    "lat": 42.814
+  },
+  {
+    "name": "CERDANYA",
+    "lon": 1.894,
+    "lat": 42.415
+  }
+]
