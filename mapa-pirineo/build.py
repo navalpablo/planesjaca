@@ -50,12 +50,12 @@ EXTENT = [CX-MAP_WIDTH_M/2, CX+MAP_WIDTH_M/2,
           CY-MAP_HEIGHT_M/2, CY+MAP_HEIGHT_M/2]
 PEAK_NAMES = [
     "aneto", "posets", "monte perdido", "mont perdu", "vignemale",
-    "balait", "balaït", "balaï", "pica d'estats", "pica d’estats",
+    "balait", "balaitus", "balaitús", "balaïtous", "balaitous", "balaït", "balaï", "pica d'estats", "pica d’estats",
     "pic du midi d'ossau", "pic du midi d’ossau", "ossau", "midi d'osau", "pico de midi",
     "pic du midi de bigorre", "pic d'anie", "pic d’anie", "auñamendi",
-    "petit astazou", "taillon", "tallón", "la munia", "bachimaña",
+    "petit astazou", "taillon", "tallón", "la munia", "munia", "bachimaña",
     "gran facha", "grande fache", "garmo negro", "infiernos",
-    "perdiguero", "bisaur", "batchimale", "grand quairat", "neouvielle",
+    "perdiguero", "bisaur", "bisaurin", "bisaurín", "batchimale", "grand quairat", "neouvielle",
     "néouvielle", "montcalm", "comapedrosa", "coma pedrosa",
     "puigmal", "canigou", "canigo", "carlit", "pédraforca", "pedraforca", "pollegó superior",
     "orhi", "ori", "larrun", "la rhune", "txindoki", "tuc de mulleres",
@@ -77,6 +77,14 @@ TOWN_NAMES = [
 def normalized(text):
     return "".join(c for c in unicodedata.normalize("NFKD", text.casefold())
                    if not unicodedata.combining(c)).replace("’", "'")
+
+def river_key(name):
+    key=normalized(name).replace("ribagorzana","ribagorcana")
+    while True:
+        stripped=re.sub(r"^(?:rio|riu|river|riviere|la|le|el)\s+|^l'", "", key)
+        if stripped==key:
+            return key
+        key=stripped
 
 def selected(name, names):
     n = normalized(name)
@@ -267,7 +275,7 @@ def build(args):
             rivers.append(p)
             nm=name_of(tags)
             if nm:
-                river_labels.setdefault(normalized(nm),{"name":nm,"segments":[]})["segments"].append(LineString(p))
+                river_labels.setdefault(river_key(nm),{"name":nm,"segments":[]})["segments"].append(LineString(p))
         elif tags.get("natural")=="water":
             for poly in water_polygons(e):
                 if poly.area<16000:
@@ -359,7 +367,7 @@ def build(args):
     for v in json.loads((ROOT/"valleys.json").read_text()):
         x,y=PROJ.transform(v["lon"],v["lat"])
         label(v["name"],x,y,18,"#777c63",True,
-              offsets=[(0,0),(0,19),(0,-19),(35,0),(-35,0)])
+              offsets=[(0,0),(0,19),(0,-19),(35,0),(-35,0),(0,38),(0,-38),(65,0),(-65,0)])
     for nm,x,y in sorted(towns,key=lambda p:0 if normalized(p[0])=="jaca" else 1):
         if not inside(x,y):
             continue
@@ -383,7 +391,8 @@ def build(args):
             merged_rivers.append((entry["name"],shape.length,anchor.x,anchor.y))
     main_rivers=["aragon","gállego","cinca","esera","garona","garonne",
                  "noguera ribagorcana","noguera pallaresa","gave de pau","gave d'aspe","aude","tet"]
-    for nm,length,x,y in sorted(merged_rivers,key=lambda q:(not selected(q[0],main_rivers),-q[1])):
+    river_order=sorted(merged_rivers,key=lambda q:(not selected(q[0],main_rivers),-q[1]))
+    for nm,length,x,y in river_order[:55]:
         label(nm,x,y,16,"#4d7889",True,
               offsets=[(0,9),(0,-9),(0,0),(15,15),(-15,-15)])
     # Scale in projected metres. UTM zone 31 gives low scale distortion here.
@@ -407,6 +416,14 @@ def build(args):
     with Image.open(str(stem)+".png") as png:
         pixel_size=list(png.size)
         embedded_dpi=list(png.info.get("dpi",[]))
+        # Detail previews come directly from the full-resolution cartographic export.
+        for filename,fractions in [
+            ("detalle-picos.jpg",(.30,.45,.66,.81)),
+            ("detalle-occidental.jpg",(.23,.24,.47,.55))]:
+            bounds=tuple(round(value*png.size[i%2]) for i,value in enumerate(fractions))
+            detail=png.crop(bounds).convert("RGB")
+            detail.thumbnail((1900,1200))
+            detail.save(OUTPUT/filename,quality=94)
     assert abs(pixel_size[0]-150/2.54*args.dpi)<2
     assert abs(pixel_size[1]-60/2.54*args.dpi)<2
     assert embedded_dpi and abs(embedded_dpi[0]-args.dpi)<.1
