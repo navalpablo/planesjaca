@@ -1,0 +1,56 @@
+name: Lámina del Pirineo
+on:
+  push:
+    branches: [mapa-pirineo]
+    paths:
+      - 'mapa-pirineo/**'
+      - '.github/workflows/pirineos-lamina.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pirineos-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: mapa-pirineo/requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: mapa-pirineo/cache
+          key: pirineos-terrain-v1
+      - name: Instalar dependencias
+        run: pip install -r mapa-pirineo/requirements.txt
+      - name: Verificar y generar lámina
+        run: |
+          python -m py_compile mapa-pirineo/build.py
+          python mapa-pirineo/build.py --dpi 200 --zoom 12
+      - name: Conservar originales completos
+        uses: actions/upload-artifact@v4
+        with:
+          name: pirineos-150x60cm
+          path: mapa-pirineo/output/
+          retention-days: 90
+      - name: Guardar lámina en tu repositorio
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          files=[p for p in Path("mapa-pirineo/output").glob("*") if p.stat().st_size < 95_000_000]
+          subprocess.run(["git","add","--force",*[str(p) for p in files]],check=True)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --cached --quiet; then
+            git commit -m "Guardar lámina del Pirineo y datos de reproducción [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
