@@ -404,8 +404,20 @@ def build(args):
     fig.savefig(str(stem)+".png",dpi=args.dpi,facecolor=PAPER)
     fig.savefig(OUTPUT/"vista-previa.jpg",dpi=50,facecolor=PAPER,pil_kwargs={"quality":92})
     plt.close(fig)
+    with Image.open(str(stem)+".png") as png:
+        pixel_size=list(png.size)
+        embedded_dpi=list(png.info.get("dpi",[]))
+    assert abs(pixel_size[0]-150/2.54*args.dpi)<2
+    assert abs(pixel_size[1]-60/2.54*args.dpi)<2
+    assert embedded_dpi and abs(embedded_dpi[0]-args.dpi)<.1
+    pdf_bytes=Path(str(stem)+".pdf").read_bytes()
+    media=re.search(rb"/MediaBox\\s*\\[\\s*0\\s+0\\s+([0-9.]+)\\s+([0-9.]+)",pdf_bytes)
+    assert media, "PDF page dimensions are missing."
+    pdf_mm=[float(media[1])/72*25.4,float(media[2])/72*25.4]
+    assert abs(pdf_mm[0]-1500)<.01 and abs(pdf_mm[1]-600)<.01
     manifest={"created_utc":datetime.now(timezone.utc).isoformat(),
               "size_cm":[150,60],"dpi":args.dpi,"epsg":25831,
+              "png_pixels":pixel_size,"png_dpi":embedded_dpi,"pdf_page_mm":pdf_mm,
               "extent_m":EXTENT,"terrain_zoom":args.zoom,
               "terrain_url":"https://registry.opendata.aws/terrain-tiles/",
               "osm_timestamp":data.get("osm3s",{}).get("timestamp_osm_base"),
