@@ -35,7 +35,7 @@ El flujo `pirineos-lamina.yml` genera la versión de impresión a 200 ppp y publ
 
 Cubre la cordillera del Atlántico al Mediterráneo, con Jaca destacada. Proyección ETRS89 / UTM 31N (EPSG:25831). Paleta hipsométrica discreta y sombreado con iluminación de varias direcciones calculado a partir de las elevaciones reales. Curvas de nivel cada 500 m, hidrografía azul grisácea y carreteras principales finas.
 
-Se rotula una selección de cumbres y poblaciones de OpenStreetMap; sus coordenadas y altitudes vienen de esa fuente. Las posiciones regionales de las etiquetas de valles se documentan en `valleys.json`: son ubicaciones tipográficas aproximadas, no límites de cuencas. La colocación mide las cajas de texto para reducir solapamientos.
+Se rotula una selección de cumbres y poblaciones de OpenStreetMap; sus coordenadas y altitudes vienen de esa fuente. Las ubicaciones aproximadas utilizadas para resolver poblaciones homónimas a coordenadas OSM están en `towns.json`. Las posiciones regionales de las etiquetas de valles se documentan en `valleys.json`: son ubicaciones tipográficas aproximadas, no límites de cuencas. La colocación mide las cajas de texto para reducir solapamientos.
 
 ## Fuentes, atribución y derechos
 

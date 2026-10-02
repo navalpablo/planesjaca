@@ -26,9 +26,9 @@ from PIL import Image
 from pyproj import Transformer
 import requests
 from scipy.ndimage import gaussian_filter, map_coordinates
-from shapely.geometry import LineString, Polygon
+from shapely.geometry import LineString, Polygon, box
 from shapely.geometry.polygon import orient
-from shapely.ops import polygonize, unary_union
+from shapely.ops import polygonize, unary_union, linemerge
 
 ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / "cache"
@@ -51,13 +51,13 @@ EXTENT = [CX-MAP_WIDTH_M/2, CX+MAP_WIDTH_M/2,
 PEAK_NAMES = [
     "aneto", "posets", "monte perdido", "mont perdu", "vignemale",
     "balait", "balaït", "balaï", "pica d'estats", "pica d’estats",
-    "pic du midi d'ossau", "pic du midi d’ossau", "ossau",
+    "pic du midi d'ossau", "pic du midi d’ossau", "ossau", "midi d'osau", "pico de midi",
     "pic du midi de bigorre", "pic d'anie", "pic d’anie", "auñamendi",
     "petit astazou", "taillon", "tallón", "la munia", "bachimaña",
     "gran facha", "grande fache", "garmo negro", "infiernos",
     "perdiguero", "bisaur", "batchimale", "grand quairat", "neouvielle",
     "néouvielle", "montcalm", "comapedrosa", "coma pedrosa",
-    "puigmal", "canig", "carlit", "pédraforca", "pedraforca",
+    "puigmal", "canigou", "canigo", "carlit", "pédraforca", "pedraforca", "pollegó superior",
     "orhi", "ori", "larrun", "la rhune", "txindoki", "tuc de mulleres",
     "besiberri", "pica de cervi", "pico de cervi", "cotiella",
     "pico de alba", "pico russell", "pic de troumouse", "pic long"
@@ -80,7 +80,7 @@ def normalized(text):
 
 def selected(name, names):
     n = normalized(name)
-    return any(normalized(s) in n for s in names)
+    return any(re.search(r"(?<![a-z0-9])" + re.escape(normalized(s)) + r"(?![a-z0-9])", n) for s in names)
 
 def fetch_bytes(url, target):
     if target.exists():
@@ -255,6 +255,7 @@ def build(args):
                levels=np.arange(500,3501,500),colors="#71634f",
                linewidths=.18,alpha=.17,zorder=1)
     roads,rivers,river_labels,peaks,towns = [],[],{},[],[]
+    all_peak_points=[]
     water_count=0
     for e in data["elements"]:
         tags=e.get("tags",{})
@@ -265,10 +266,8 @@ def build(args):
         elif tags.get("waterway")=="river" and p is not None:
             rivers.append(p)
             nm=name_of(tags)
-            if nm and len(p)>5:
-                length=LineString(p).length
-                if length > 10000 and (nm not in river_labels or length>river_labels[nm][0]):
-                    river_labels[nm]=(length,p[len(p)//2])
+            if nm:
+                river_labels.setdefault(normalized(nm),{"name":nm,"segments":[]})["segments"].append(LineString(p))
         elif tags.get("natural")=="water":
             for poly in water_polygons(e):
                 if poly.area<16000:
@@ -287,14 +286,35 @@ def build(args):
         elif e["type"]=="node" and tags.get("natural")=="peak":
             nm=name_of(tags)
             alt=altitude(tags)
-            if selected(nm,PEAK_NAMES) and alt and alt>800:
+            if alt and alt>800:
                 x,y=PROJ.transform(e["lon"],e["lat"])
-                peaks.append((nm,alt,x,y))
+                all_peak_points.append((nm,alt,x,y))
+                if selected(nm,PEAK_NAMES):
+                    peaks.append((nm,alt,x,y))
         elif e["type"]=="node" and tags.get("place"):
             nm=name_of(tags)
-            if selected(nm,TOWN_NAMES):
-                x,y=PROJ.transform(e["lon"],e["lat"])
-                towns.append((nm,x,y))
+            x,y=PROJ.transform(e["lon"],e["lat"])
+            towns.append((nm,x,y))
+    # Important massifs sometimes use a different primary name in OSM.
+    for nm,lon,lat in [("Midi d'Ossau",-.4387,42.8433),
+                       ("Perdiguero",.5192,42.6925),
+                       ("Néouvielle",.1159,42.8369),
+                       ("Taillón",-.0526,42.6931)]:
+        xx,yy=PROJ.transform(lon,lat)
+        nearby=[p for p in all_peak_points if math.hypot(p[2]-xx,p[3]-yy)<600 and p[1]>2700]
+        if nearby:
+            p=min(nearby,key=lambda p:math.hypot(p[2]-xx,p[3]-yy))
+            peaks=[q for q in peaks if math.hypot(q[2]-p[2],q[3]-p[3])>600]
+            peaks.append((nm,p[1],p[2],p[3]))
+    # Resolve editorial town choices to actual OSM points, avoiding same-name villages.
+    chosen_towns=[]
+    for target in json.loads((ROOT/"towns.json").read_text()):
+        xx,yy=PROJ.transform(target["lon"],target["lat"])
+        candidates=[q for q in towns if math.hypot(q[1]-xx,q[2]-yy)<2500]
+        if candidates:
+            nearest=min(candidates,key=lambda q:math.hypot(q[1]-xx,q[2]-yy))
+            chosen_towns.append((target["name"],nearest[1],nearest[2]))
+    towns=chosen_towns
     ax.add_collection(LineCollection(roads,colors="#9b8c70",linewidths=.22,alpha=.36,zorder=2))
     ax.add_collection(LineCollection(rivers,colors=WATER,linewidths=.38,alpha=.9,zorder=3))
     fig.text(.5,.921,"P I R I N E O S",ha="center",va="center",fontsize=82,color=INK)
@@ -335,6 +355,11 @@ def build(args):
         size=22 if alt>3200 else 19
         label(f"{nm}\n{round(alt):,} m".replace(","," "),x,y,size,"#504a3b",
               offsets=[(0,29),(0,-30),(70,0),(-70,0),(70,27),(-70,27)])
+    # Valley names have priority over secondary town and river labels.
+    for v in json.loads((ROOT/"valleys.json").read_text()):
+        x,y=PROJ.transform(v["lon"],v["lat"])
+        label(v["name"],x,y,18,"#777c63",True,
+              offsets=[(0,0),(0,19),(0,-19),(35,0),(-35,0)])
     for nm,x,y in sorted(towns,key=lambda p:0 if normalized(p[0])=="jaca" else 1):
         if not inside(x,y):
             continue
@@ -342,14 +367,25 @@ def build(args):
         ax.plot(x,y,"o",markersize=5.5 if jaca else 3.5,
                 markeredgecolor=PAPER,markeredgewidth=.8,color=INK,zorder=5)
         label("JACA" if jaca else nm,x,y,24 if jaca else 19,INK,
-              offsets=[(0,-19),(0,19),(55,0),(-55,0)])
-    for v in json.loads((ROOT/"valleys.json").read_text()):
-        x,y=PROJ.transform(v["lon"],v["lat"])
-        label(v["name"],x,y,19,"#777c63",True,
-              offsets=[(0,0),(0,17),(0,-17)])
-    for nm,(length,(x,y)) in sorted(river_labels.items(),key=lambda q:-q[1][0]):
+              offsets=[(0,-19),(0,19),(55,0),(-55,0),(0,-38),(0,38),(75,25),(-75,25)])
+    # Connected OSM segments are merged before selecting a label anchor.
+    merged_rivers=[]
+    for entry in river_labels.values():
+        shape=unary_union(entry["segments"]).intersection(box(EXTENT[0],EXTENT[2],EXTENT[1],EXTENT[3]))
+        if shape.is_empty or shape.geom_type not in ("LineString","MultiLineString"):
+            continue
+        if shape.geom_type=="MultiLineString":
+            shape=linemerge(shape)
+        lines=list(shape.geoms) if shape.geom_type=="MultiLineString" else [shape]
+        line=max(lines,key=lambda q:q.length)
+        if shape.length>22000:
+            anchor=line.interpolate(.5,normalized=True)
+            merged_rivers.append((entry["name"],shape.length,anchor.x,anchor.y))
+    main_rivers=["aragon","gállego","cinca","esera","garona","garonne",
+                 "noguera ribagorcana","noguera pallaresa","gave de pau","gave d'aspe","aude","tet"]
+    for nm,length,x,y in sorted(merged_rivers,key=lambda q:(not selected(q[0],main_rivers),-q[1])):
         label(nm,x,y,16,"#4d7889",True,
-              offsets=[(0,9),(0,-9),(0,0)])
+              offsets=[(0,9),(0,-9),(0,0),(15,15),(-15,-15)])
     # Scale in projected metres. UTM zone 31 gives low scale distortion here.
     fig.text(.03,.065,"N ↑",fontsize=21,color=INK)
     bar=fig.add_axes([.074,.052,.10,.03]);bar.set_xlim(0,MAP_WIDTH_M*.10/FRAME[2])

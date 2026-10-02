@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Jaca",
+    "lon": -0.5493,
+    "lat": 42.5686
+  },
+  {
+    "name": "Pamplona",
+    "lon": -1.644,
+    "lat": 42.812
+  },
+  {
+    "name": "Pau",
+    "lon": -0.37,
+    "lat": 43.296
+  },
+  {
+    "name": "Tarbes",
+    "lon": 0.072,
+    "lat": 43.232
+  },
+  {
+    "name": "Lourdes",
+    "lon": -0.045,
+    "lat": 43.1
+  },
+  {
+    "name": "Oloron-Sainte-Marie",
+    "lon": -0.615,
+    "lat": 43.192
+  },
+  {
+    "name": "Laruns",
+    "lon": -0.425,
+    "lat": 42.987
+  },
+  {
+    "name": "Saint-Jean-Pied-de-Port",
+    "lon": -1.237,
+    "lat": 43.164
+  },
+  {
+    "name": "Biescas",
+    "lon": -0.322,
+    "lat": 42.628
+  },
+  {
+    "name": "Sabiñánigo",
+    "lon": -0.364,
+    "lat": 42.519
+  },
+  {
+    "name": "Benasque",
+    "lon": 0.524,
+    "lat": 42.604
+  },
+  {
+    "name": "Aínsa",
+    "lon": 0.139,
+    "lat": 42.416
+  },
+  {
+    "name": "Vielha",
+    "lon": 0.795,
+    "lat": 42.704
+  },
+  {
+    "name": "Andorra la Vella",
+    "lon": 1.522,
+    "lat": 42.507
+  },
+  {
+    "name": "la Seu d'Urgell",
+    "lon": 1.461,
+    "lat": 42.357
+  },
+  {
+    "name": "Tremp",
+    "lon": 0.894,
+    "lat": 42.168
+  },
+  {
+    "name": "Sort",
+    "lon": 1.132,
+    "lat": 42.409
+  },
+  {
+    "name": "Puigcerdà",
+    "lon": 1.928,
+    "lat": 42.431
+  },
+  {
+    "name": "Ripoll",
+    "lon": 2.192,
+    "lat": 42.2
+  },
+  {
+    "name": "Prades",
+    "lon": 2.424,
+    "lat": 42.617
+  },
+  {
+    "name": "Céret",
+    "lon": 2.749,
+    "lat": 42.485
+  },
+  {
+    "name": "Foix",
+    "lon": 1.609,
+    "lat": 42.965
+  },
+  {
+    "name": "Saint-Girons",
+    "lon": 1.146,
+    "lat": 42.984
+  },
+  {
+    "name": "Saint-Gaudens",
+    "lon": 0.724,
+    "lat": 43.109
+  },
+  {
+    "name": "Bagnères-de-Luchon",
+    "lon": 0.593,
+    "lat": 42.79
+  },
+  {
+    "name": "Saint-Lary-Soulan",
+    "lon": 0.323,
+    "lat": 42.817
+  },
+  {
+    "name": "Cauterets",
+    "lon": -0.114,
+    "lat": 42.89
+  },
+  {
+    "name": "Luz-Saint-Sauveur",
+    "lon": -0.004,
+    "lat": 42.871
+  },
+  {
+    "name": "Gavarnie",
+    "lon": -0.008,
+    "lat": 42.732
+  },
+  {
+    "name": "Torla-Ordesa",
+    "lon": -0.102,
+    "lat": 42.627
+  },
+  {
+    "name": "Broto",
+    "lon": -0.125,
+    "lat": 42.603
+  },
+  {
+    "name": "Canfranc",
+    "lon": -0.525,
+    "lat": 42.718
+  }
+]
