@@ -297,7 +297,7 @@ def build(args):
             if alt and alt>800:
                 x,y=PROJ.transform(e["lon"],e["lat"])
                 all_peak_points.append((nm,alt,x,y))
-                if selected(nm,PEAK_NAMES):
+                if selected(nm,PEAK_NAMES) and not (normalized(nm)=="pic long" and alt<3000):
                     peaks.append((nm,alt,x,y))
         elif e["type"]=="node" and tags.get("place"):
             nm=name_of(tags)
@@ -411,9 +411,11 @@ def build(args):
     stem=OUTPUT/"pirineos-150x60cm"
     fig.savefig(str(stem)+".pdf",dpi=args.dpi,facecolor=PAPER)
     fig.savefig(str(stem)+".png",dpi=args.dpi,facecolor=PAPER)
-    fig.savefig(OUTPUT/"vista-previa.jpg",dpi=50,facecolor=PAPER,pil_kwargs={"quality":92})
     plt.close(fig)
     with Image.open(str(stem)+".png") as png:
+        preview=png.convert("RGB")
+        preview.thumbnail((2953,1181))
+        preview.save(OUTPUT/"vista-previa.jpg",quality=94)
         pixel_size=list(png.size)
         embedded_dpi=list(png.info.get("dpi",[]))
         # Detail previews come directly from the full-resolution cartographic export.
