@@ -411,7 +411,7 @@ def build(args):
     assert abs(pixel_size[1]-60/2.54*args.dpi)<2
     assert embedded_dpi and abs(embedded_dpi[0]-args.dpi)<.1
     pdf_bytes=Path(str(stem)+".pdf").read_bytes()
-    media=re.search(rb"/MediaBox\\s*\\[\\s*0\\s+0\\s+([0-9.]+)\\s+([0-9.]+)",pdf_bytes)
+    media=re.search(rb"/MediaBox\s*\[\s*0\s+0\s+([0-9.]+)\s+([0-9.]+)",pdf_bytes)
     assert media, "PDF page dimensions are missing."
     pdf_mm=[float(media[1])/72*25.4,float(media[2])/72*25.4]
     assert abs(pdf_mm[0]-1500)<.01 and abs(pdf_mm[1]-600)<.01
